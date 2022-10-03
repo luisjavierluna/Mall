@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Mall-UI';
+
+  homeVariable: boolean = false;
+
+  dimScreen(){
+    this.homeVariable = !this.homeVariable
+  }
 }

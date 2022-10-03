@@ -8,7 +8,7 @@
                             Spanish
                         </a>
                         <a class="short__language" href="#">
-                            Spa
+                            SPA
                         </a>
                     </div>
                     <div class="site-header__logo">
@@ -26,12 +26,11 @@
             </div>
         </div>
     </div>
-    <nav class="site-header__menu" style="height: 39px;">
-        <div class="hamburger-icon">
+
+    <nav class="site-header__menu">
+        <div class="navbar-links" (mouseenter)="dimScreen()" (mouseleave)="dimScreen()">
             <i class="fa-solid fa-bars"></i>
-        </div>
-        <div class="navbar-links">
-            <ul>
+            <ul class="navbar-links-ul">
                 <li>
                     <a href="#">
                         Computers
@@ -73,26 +72,25 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#" data-megamenu="##mm-shop">
+                    <a href="#">
                         Consoles
                         <i class="fa-solid fa-caret-down"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" data-megamenu="##mm-shop">
+                    <a href="#">
                         Videogames
-
                         <i class="fa-solid fa-caret-down"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" data-megamenu="##mm-shop">
+                    <a href="#">
                         Components
                         <i class="fa-solid fa-caret-down"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" data-megamenu="##mm-shop">
+                    <a href="#">
                         Accessories
                         <i class="fa-solid fa-caret-down"></i>
                     </a>
@@ -110,7 +108,7 @@
 
 <div class="site-mega"></div>
 
-<div class="container-fluid mt-5">
+<div class="container-fluid body-content" [class.home-content]="homeVariable">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, necessitatibus
         commodi voluptates ullam voluptas nesciunt alias fugit, officia, ratione
         soluta laboriosam nisi sed consequatur fuga nobis neque laborum cumque

@@ -4,10 +4,6 @@
     font-size: .8rem;
 }
 
-/* nav {
-    position: absolute;
-} */
-
 a {
     color: black;
     text-decoration: none;
@@ -88,6 +84,7 @@ button:hover {
 
 .site-header__menu {
     border-bottom: 1px solid #e3e3e3;
+    height: 39px; 
 }
 
 .hamburger-icon {
@@ -100,7 +97,11 @@ button:hover {
     height: 100%;
 }
 
-.navbar-links ul {
+.navbar-links > i {
+    display: none;
+}
+
+.navbar-links-ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -110,32 +111,31 @@ button:hover {
     margin-bottom: 0;
 }
 
-.navbar-links ul li {
-    
+.navbar-links-ul li {
     list-style: none;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    height: 95%;
+    line-height: 48px;
     border-bottom: black
 }
 
-.navbar-links ul li a {
+.navbar-links-ul li a {
     display: flex;
     align-items: center;
     height: 100%;
 }
 
-.navbar-links ul li a i {
+.navbar-links-ul li a i {
     margin-left: 0.4rem;
     transition: all 0.3s ease-in-out;
 }
 
-.navbar-links ul li:hover a i {
+.navbar-links-ul li:hover a i {
     transform: rotate(180deg);
     transition: all 0.3s ease-in-out;
 }
 
-.navbar-links ul li:hover a {
+.navbar-links-ul li:hover a {
     color: rgb(82, 82, 82);
     border-bottom: 1px solid black;
     transition: all 0.3s ease-in-out;
@@ -150,13 +150,18 @@ button:hover {
     position: absolute;
     top: 80px;
     width: 100%;
+    height: 50vh;
     left: 0;
+
+    /* COMMENT THIS LATER */
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
 }
 
 .navbar-links li:hover .mega-box {
+    /* COMMENT THIS LATER */
+    
     opacity: 1;
     visibility: visible;
     transition: all 0.3s ease;
@@ -167,6 +172,7 @@ button:hover {
     padding: 5px 20rem;
     display: flex;
     box-shadow: 5px 5px 10px 2px rgba(0,0,0,.1);
+    height: 100%;
 }
 
 .content .row {
@@ -210,9 +216,12 @@ button:hover {
     transition: all 0.3s ease-in-out;
 }
 
+.body-content {
+    margin-top: 40px;
+}
 
 @media (max-width: 1200px) {
-    .navbar-links ul {
+    .navbar-links-ul {
         padding-left: 4rem;
         padding-right: 4rem;
     }
@@ -223,7 +232,7 @@ button:hover {
 }
 
 @media (max-width: 992px) {
-    .navbar-links ul {
+    .navbar-links-ul {
         padding-left: 1rem;
         padding-right: 1rem;
     }
@@ -235,25 +244,108 @@ button:hover {
 }
 
 @media (max-width: 720px) {
-    .navbar-links ul {
-        display: none   ;
+    .site-header__menu {
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar-links {
+        position: relative;
+        height: 38px;
+        width: 40vh;
+        justify-content: left;
     }
 
-    .hamburger-icon {
+    .navbar-links:hover {
+        border-bottom: 1px solid black;
+    }
+    
+    .navbar-links-ul {
+        position: absolute;
+        flex-direction: column;
+        background-color: white;
+        top: 39px;
+        align-items: flex-start;
+        height: 85vh;
+        width: 40vh;
+
+        /* UNCOMMENT THIS LATER */
+        left: -224px;
+        transition: all 0.3s ease; 
+    }
+
+    .navbar-links-ul li {
+        width: 100%;
+    }
+
+    .navbar-links:hover i,
+    .navbar-links:hover .navbar-links-ul {
+        left: 0px;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-links i {
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: start;
-        margin-left: 1rem;
         cursor: pointer;
-    }
-    
-    .hamburger-icon i{
         font-size: 1rem;
+        margin-left: 1rem;
     }
 
-    .hamburger-icon i:hover{
-        color: rgb(94, 94, 94);
+    .navbar-links:hover i{
+        color: rgb(133, 133, 133);
+    }
+
+    .home-content{
+        background-color: rgba(1, 1, 1, 0.2);
+    }
+
+    .mega-box {
+        position: absolute;
+        top: 0px;
+        left: 223px;
+        width: 60vh;
+        height: 85vh;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-links-ul li:hover .mega-box {
+        opacity: 1;
+        visibility: visible;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .mega-box .content {
+        background: white;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.1);
+        display: block;
+    }
+
+    .content .row {
+        line-height: 45px;
+        width: 100%;
+        margin: 0.5rem;
+        flex-direction: column;
+        border-right: 1px solid rgb(185, 185, 185);
+    }
+
+    .content .row header {
+        font-weight: 600;
+    }
+    
+    .content .row .mega-links {
+        line-height: 26px;
+        width: 100%;
+        height: 10%;
+        padding-left: 12px;
+        padding-right: 12px;
     }
 }
 
