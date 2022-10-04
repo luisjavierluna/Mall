@@ -263,10 +263,11 @@ button:hover {
     .navbar-links-ul {
         position: absolute;
         flex-direction: column;
+        display: block;
         background-color: white;
         top: 39px;
         align-items: flex-start;
-        height: 85vh;
+        height: 100vh;
         width: 40vh;
 
         /* UNCOMMENT THIS LATER */
@@ -307,7 +308,7 @@ button:hover {
         top: 0px;
         left: 223px;
         width: 60vh;
-        height: 85vh;
+        height: 100vh;
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease-in-out;
@@ -324,8 +325,9 @@ button:hover {
         display: flex;
         width: 100%;
         height: 100%;
-        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.1);
         display: block;
+        padding-bottom: 7rem;
+        overflow-y: scroll;
     }
 
     .content .row {
@@ -341,12 +343,21 @@ button:hover {
     }
     
     .content .row .mega-links {
+        /*  */
         line-height: 26px;
         width: 100%;
         height: 10%;
         padding-left: 12px;
         padding-right: 12px;
     }
+
+    .content .row .mega-links > li {
+        line-height: 36px;
+    }
+}
+
+@media (max-width: 576px) {
+    /* CREATE MENU OF ONE SINGLE COLUMN */
 }
 
 @media (max-width: 400px) {
