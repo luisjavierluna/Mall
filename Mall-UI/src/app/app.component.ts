@@ -10,7 +10,13 @@ export class AppComponent {
 
   navbarLinksVariable = false
   homeVariable: boolean = false
-  megaBoxVariable: boolean = false
+
+  computersMBVariable: boolean = false
+  consolesMBVariable: boolean = false
+  videogamesMBVariable: boolean = false
+  componentsMBVariable: boolean = false
+  accesoriesMBVariable: boolean = false
+  workstationMBVariable: boolean = false
 
   showNavbarLinksUl(){
     this.navbarLinksVariable = !this.navbarLinksVariable
@@ -19,8 +25,29 @@ export class AppComponent {
   dimScreen(){
     this.homeVariable = !this.homeVariable
   }
+  
 
-  showMegaBox(){
-    this.megaBoxVariable = !this.megaBoxVariable
+  showComputersUl(){
+    this.computersMBVariable = !this.computersMBVariable
+  }
+
+  showConsolesUl(){
+    this.consolesMBVariable = !this.consolesMBVariable
+  }
+
+  showVideogamesUl(){
+    this.videogamesMBVariable = !this.videogamesMBVariable
+  }
+
+  showComponentsUl(){
+    this.componentsMBVariable = !this.componentsMBVariable
+  }
+
+  showAccesoriesUl(){
+    this.accesoriesMBVariable = !this.accesoriesMBVariable
+  }
+
+  showWorkstationUl(){
+    this.workstationMBVariable = !this.workstationMBVariable
   }
 }
