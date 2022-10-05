@@ -8,9 +8,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Mall-UI';
 
-  homeVariable: boolean = false;
+  navbarLinksVariable = false
+  homeVariable: boolean = false
+  megaBoxVariable: boolean = false
+
+  showNavbarLinksUl(){
+    this.navbarLinksVariable = !this.navbarLinksVariable
+  }
 
   dimScreen(){
     this.homeVariable = !this.homeVariable
+  }
+
+  showMegaBox(){
+    this.megaBoxVariable = !this.megaBoxVariable
   }
 }

@@ -271,7 +271,7 @@ button:hover {
         width: 40vh;
 
         /* UNCOMMENT THIS LATER */
-        left: -224px;
+        left: -244px;
         transition: all 0.3s ease; 
     }
 
@@ -306,9 +306,11 @@ button:hover {
     .mega-box {
         position: absolute;
         top: 0px;
-        left: 223px;
+        left: 243px;
         width: 60vh;
         height: 100vh;
+
+        /* COMMENT THIS LINES LATER */
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease-in-out;
@@ -343,7 +345,6 @@ button:hover {
     }
     
     .content .row .mega-links {
-        /*  */
         line-height: 26px;
         width: 100%;
         height: 10%;
@@ -357,7 +358,65 @@ button:hover {
 }
 
 @media (max-width: 576px) {
-    /* CREATE MENU OF ONE SINGLE COLUMN */
+    .navbar-links {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .navbar-links i {
+        margin-left: 0px;
+    }
+
+    .navbar-links-ul {
+        display: none;
+    }
+
+    .show-navbar-links-ul {
+        display: block;
+        align-items: center;
+        width: 100%;
+        overflow-y: auto;
+        padding-bottom: 7rem;
+        left: 0px;
+    }
+    
+    .show-navbar-links-ul > li > a {
+        display: flex;
+        justify-content: center;
+    }
+
+    .mega-box {
+        display: none;
+    }
+    
+    .content .row header {
+        display: flex;
+        justify-content: center;
+    }
+
+    .show-mega-box {
+        position: static;
+        width: 100%;
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mega-box .content {
+        overflow-y: hidden;
+    }
+
+    .content .row {
+        border-top: 1px solid rgb(185, 185, 185);
+    }
+
+    .content .row:nth-child(1),
+    .content .row:nth-child(2),
+    .content .row:nth-child(3) {
+        border-right: none;
+    }
 }
 
 @media (max-width: 400px) {

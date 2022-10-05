@@ -29,14 +29,14 @@
 
     <nav class="site-header__menu">
         <div class="navbar-links" (mouseenter)="dimScreen()" (mouseleave)="dimScreen()">
-            <i class="fa-solid fa-bars"></i>
-            <ul class="navbar-links-ul">
+            <i class="fa-solid fa-bars" (click)="showNavbarLinksUl()"></i>
+            <ul class="navbar-links-ul"  [class.show-navbar-links-ul]="navbarLinksVariable">
                 <li>
-                    <a href="#">
+                    <a href="#" (click)="showMegaBox()">
                         Computers
                         <i class="fa-solid fa-caret-down"></i>
                     </a>
-                    <div class="mega-box">
+                    <div class="mega-box" [class.show-mega-box]="megaBoxVariable" >
                         <div class="content">
                             <!-- <div class="row">
                                 <img src="#" alt="">
