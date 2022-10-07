@@ -37,35 +37,9 @@
                         <i class="fa-solid fa-caret-down"></i>
                     </a>
                     <div class="mega-box" [class.show-mega-box-computers]="computersMBVariable">
-                        <div class="content">
-                            <div class="row">
-                                <header>Design Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Graphics</a></li>
-                                    <li><a href="#">Vectors</a></li>
-                                    <li><a href="#">Business cards</a></li>
-                                    <li><a href="#">Custom logo</a></li>
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <header>Email Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Personal Email</a></li>
-                                    <li><a href="#">Business Email</a></li>
-                                    <li><a href="#">Mobile Email</a></li>
-                                    <li><a href="#">Web Marketing</a></li>
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <header>Security Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Site Seal</a></li>
-                                    <li><a href="#">VPS Hosting</a></li>
-                                    <li><a href="#">Privacy Seal</a></li>
-                                    <li><a href="#">Website design</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
+                        <app-menu-model [departmentAreasModel]="computerAreas"></app-menu-model>
+
                     </div>
                 </li>
                 <li>
@@ -74,35 +48,9 @@
                         <i class="fa-solid fa-caret-down"></i>
                     </a>
                     <div class="mega-box" [class.show-mega-box-consoles]="consolesMBVariable">
-                        <div class="content">
-                            <div class="row">
-                                <header>Design Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Graphics</a></li>
-                                    <li><a href="#">Vectors</a></li>
-                                    <li><a href="#">Business cards</a></li>
-                                    <li><a href="#">Custom logo</a></li>
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <header>Email Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Personal Email</a></li>
-                                    <li><a href="#">Business Email</a></li>
-                                    <li><a href="#">Mobile Email</a></li>
-                                    <li><a href="#">Web Marketing</a></li>
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <header>Security Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Site Seal</a></li>
-                                    <li><a href="#">VPS Hosting</a></li>
-                                    <li><a href="#">Privacy Seal</a></li>
-                                    <li><a href="#">Website design</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
+                        <app-menu-model [departmentAreasModel]="consoleAreas"></app-menu-model>
+
                     </div>
                 </li>
                 <li>
@@ -111,35 +59,9 @@
                         <i class="fa-solid fa-caret-down"></i>
                     </a>
                     <div class="mega-box" [class.show-mega-box-videogames]="videogamesMBVariable">
-                        <div class="content">
-                            <div class="row">
-                                <header>Design Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Graphics</a></li>
-                                    <li><a href="#">Vectors</a></li>
-                                    <li><a href="#">Business cards</a></li>
-                                    <li><a href="#">Custom logo</a></li>
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <header>Email Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Personal Email</a></li>
-                                    <li><a href="#">Business Email</a></li>
-                                    <li><a href="#">Mobile Email</a></li>
-                                    <li><a href="#">Web Marketing</a></li>
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <header>Security Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Site Seal</a></li>
-                                    <li><a href="#">VPS Hosting</a></li>
-                                    <li><a href="#">Privacy Seal</a></li>
-                                    <li><a href="#">Website design</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
+                        <app-menu-model [departmentAreasModel]="videogameAreas"></app-menu-model>
+
                     </div>
                 </li>
                 <li>
@@ -148,35 +70,9 @@
                         <i class="fa-solid fa-caret-down"></i>
                     </a>
                     <div class="mega-box" [class.show-mega-box-components]="componentsMBVariable">
-                        <div class="content">
-                            <div class="row">
-                                <header>Design Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Graphics</a></li>
-                                    <li><a href="#">Vectors</a></li>
-                                    <li><a href="#">Business cards</a></li>
-                                    <li><a href="#">Custom logo</a></li>
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <header>Email Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Personal Email</a></li>
-                                    <li><a href="#">Business Email</a></li>
-                                    <li><a href="#">Mobile Email</a></li>
-                                    <li><a href="#">Web Marketing</a></li>
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <header>Security Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Site Seal</a></li>
-                                    <li><a href="#">VPS Hosting</a></li>
-                                    <li><a href="#">Privacy Seal</a></li>
-                                    <li><a href="#">Website design</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
+                        <app-menu-model [departmentAreasModel]="componentAreas"></app-menu-model>
+
                     </div>
                 </li>
                 <li>
@@ -185,72 +81,20 @@
                         <i class="fa-solid fa-caret-down"></i>
                     </a>
                     <div class="mega-box" [class.show-mega-box-accesories]="accesoriesMBVariable">
-                        <div class="content">
-                            <div class="row">
-                                <header>Design Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Graphics</a></li>
-                                    <li><a href="#">Vectors</a></li>
-                                    <li><a href="#">Business cards</a></li>
-                                    <li><a href="#">Custom logo</a></li>
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <header>Email Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Personal Email</a></li>
-                                    <li><a href="#">Business Email</a></li>
-                                    <li><a href="#">Mobile Email</a></li>
-                                    <li><a href="#">Web Marketing</a></li>
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <header>Security Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Site Seal</a></li>
-                                    <li><a href="#">VPS Hosting</a></li>
-                                    <li><a href="#">Privacy Seal</a></li>
-                                    <li><a href="#">Website design</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
+                        <app-menu-model [departmentAreasModel]="accesoryAreas"></app-menu-model>
+
                     </div>
                 </li>
                 <li>
                     <a href="#" (click)="showWorkstationUl()">
-                        Workstation
+                        Workstations
                         <i class="fa-solid fa-caret-down"></i>
                     </a>
                     <div class="mega-box" [class.show-mega-box-workstation]="workstationMBVariable">
-                        <div class="content">
-                            <div class="row">
-                                <header>Design Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Graphics</a></li>
-                                    <li><a href="#">Vectors</a></li>
-                                    <li><a href="#">Business cards</a></li>
-                                    <li><a href="#">Custom logo</a></li>
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <header>Email Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Personal Email</a></li>
-                                    <li><a href="#">Business Email</a></li>
-                                    <li><a href="#">Mobile Email</a></li>
-                                    <li><a href="#">Web Marketing</a></li>
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <header>Security Services</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Site Seal</a></li>
-                                    <li><a href="#">VPS Hosting</a></li>
-                                    <li><a href="#">Privacy Seal</a></li>
-                                    <li><a href="#">Website design</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
+                        <app-menu-model [departmentAreasModel]="workstationAreas"></app-menu-model>
+
                     </div>
                 </li>
             </ul>

@@ -115,7 +115,7 @@ button:hover {
     list-style: none;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    line-height: 48px;
+    line-height: 35px;
     border-bottom: black
 }
 
@@ -153,67 +153,18 @@ button:hover {
     height: 50vh;
     left: 0;
 
-    /* COMMENT THIS LATER */
+
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
 }
 
 .navbar-links li:hover .mega-box {
-    /* COMMENT THIS LATER */
+
     
     opacity: 1;
     visibility: visible;
     transition: all 0.3s ease;
-}
-
-.mega-box .content {
-    background: white;
-    padding: 5px 20rem;
-    display: flex;
-    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.1);
-    height: 100%;
-}
-
-.content .row {
-    line-height: 45px;
-    width: 100%;
-    margin: 0.5rem;
-}
-
-.content .row:nth-child(1),
-.content .row:nth-child(2) {
-    border-right: 1px solid rgb(185, 185, 185);
-}
-
-.content .row header {
-    font-weight: 600;
-}
-
-.content .row .mega-links {
-    width: calc(25% - 30px);
-    line-height: 45px;
-    flex-direction: column;
-    width: 100%;
-    padding-left: 12px;
-    padding-right: 12px;
-}
-
-.content .row .mega-links li {
-    width: 100%;
-    padding: 0;
-}
-
-.content .row .mega-links a {
-    text-transform: capitalize;
-    width: 100%;
-    border-bottom: none;
-    color: black;
-}
-
-.content .row .mega-links li a:hover {
-    color: rgb(82, 82, 82);
-    transition: all 0.3s ease-in-out;
 }
 
 .body-content {
@@ -270,7 +221,7 @@ button:hover {
         height: 100vh;
         width: 40vh;
 
-        /* UNCOMMENT THIS LATER */
+
         left: -244px;
         transition: all 0.3s ease; 
     }
@@ -310,7 +261,7 @@ button:hover {
         width: 60vh;
         height: 100vh;
 
-        /* COMMENT THIS LINES LATER */
+
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease-in-out;
@@ -320,39 +271,6 @@ button:hover {
         opacity: 1;
         visibility: visible;
         transition: all 0.3s ease-in-out;
-    }
-
-    .mega-box .content {
-        background: white;
-        display: flex;
-        width: 100%;
-        height: 100%;
-        display: block;
-        overflow-y: scroll;
-    }
-
-    .content .row {
-        line-height: 45px;
-        width: 100%;
-        margin: 0.5rem;
-        flex-direction: column;
-        border-right: 1px solid rgb(185, 185, 185);
-    }
-
-    .content .row header {
-        font-weight: 600;
-    }
-    
-    .content .row .mega-links {
-        line-height: 26px;
-        width: 100%;
-        height: 10%;
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-
-    .content .row .mega-links > li {
-        line-height: 36px;
     }
 }
 
@@ -408,11 +326,7 @@ button:hover {
         display: none;
     }
     
-    .content .row header {
-        display: flex;
-        justify-content: center;
-    }
-
+    
     .show-mega-box-computers,
     .show-mega-box-consoles,
     .show-mega-box-consoles,
@@ -425,19 +339,5 @@ button:hover {
         display: block;
         opacity: 1;
         visibility: visible;
-    }
-
-    .mega-box .content {
-        overflow-y: hidden;
-    }
-
-    .content .row {
-        border-top: 1px solid rgb(185, 185, 185);
-    }
-
-    .content .row:nth-child(1),
-    .content .row:nth-child(2),
-    .content .row:nth-child(3) {
-        border-right: none;
     }
 }
