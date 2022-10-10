@@ -1,5 +1,5 @@
 <header class="site-header">
-    <div class="site-header__leader" style="height: 41px;">
+    <div class="site-header__leader">
         <div class="site-header__container">
             <div class="site-header__row">
                 <div class="column">
@@ -102,9 +102,7 @@
     </nav>
 </header>
 
-<div class="site-mega"></div>
-
-<div class="container-fluid body-content" [class.home-content]="homeVariable">
+<div [class.home-content]="homeVariable">
     
     <router-outlet></router-outlet>
     

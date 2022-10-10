@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MenuModelComponent } from './mega-boxes/menu-model/menu-model.component';
+import { CarouselComponent } from './landing-page/carousel/carousel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    MenuModelComponent
+    MenuModelComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
