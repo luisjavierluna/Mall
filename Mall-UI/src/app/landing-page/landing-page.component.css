@@ -71,6 +71,39 @@
     height: auto;
 }
 
+.fifth-section {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fifth-section div {
+    margin: 1rem;
+}
+
+.fifth-section__text p {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Romain BP Headline Regular',serif;
+    text-transform: capitalize;
+    margin: 0px;
+}
+
+.fifth-section__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fifth-section__buttons a {
+    margin: 0px 8px;
+    font-size: 10px;
+    padding: 12px 32px;
+    border-radius: 0px;
+}
+
 @media (max-width: 768px) {
     .second-section {
         display: block;
@@ -104,6 +137,16 @@
     
     .fourth-section__image img {
         width: 122vh;
+    }
+
+    .sixth-section {
+        width: 800px;
+        height: 250px;
+        overflow: hidden;
+    }
+    
+    .sixth-section img {
+        min-height: 250px;
     }
 }
 
