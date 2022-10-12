@@ -87,6 +87,10 @@ button:hover {
     margin-left: 5px;
 }
 
+.site-search-btn__label {
+    margin-right: 5px;
+}
+
 .site-header__menu {
     border-bottom: 1px solid #e3e3e3;
     height: 39px; 
@@ -217,7 +221,7 @@ button:hover {
         width: 40vh;
 
 
-        left: -244px;
+        left: -810px;
         transition: all 0.3s ease; 
     }
 
