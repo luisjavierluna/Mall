@@ -170,6 +170,132 @@ button:hover {
     transition: all 0.3s ease;
 }
 
+.site-footer {
+    padding-top: 40px;
+}
+
+.site-footer__header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.site-footer__header .site-header__logo{
+    margin: 0px 2rem;
+}
+
+.footer-lines {
+    height: 2px;
+    width: 100%;
+    align-self: center;
+    background-color: rgb(213, 213, 213);
+}
+
+.first-footer-section {
+    display: flex;
+    justify-content: space-around;
+    margin:0px 1rem 30px 1rem ;
+}
+
+.footer-section__social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer-section__social h5 {
+    margin: 0px 0px 10px 8px;
+    font-weight: bold;
+}
+
+.footer-social-icons {
+    display: flex;
+}
+
+.footer-social-icons a {
+    margin: 0px 8px;
+    height: 36px;
+    width: 36px;
+    padding: 1rem;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-social-icons a i {
+    font-size: 18px;
+    color: white;
+}
+
+.footer-section__newsletter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer-section__newsletter h5 {
+    font-weight: bold;
+}
+
+.footer-app__input {
+    display:  flex;
+    justify-content: center;
+}
+
+.footer-app__input input {
+    width: 14rem;
+    height: 33px;
+}
+
+.footer-app__input a {
+    border-radius: 0%;
+    background-color: black;
+    color: white;
+    height: 33px;
+}
+
+.footer-app__input a:hover {
+    background-color: white;
+    color: black;
+}
+
+.footer-section__app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer-section__app h5 {
+    margin-bottom:10px;
+    font-weight: bold;
+}
+
+.footer-app__images {
+    display: flex;
+}
+
+.footer-app__images img {
+    height: 34px;
+    width: auto;
+    margin: 0px 1rem 0px 0px;
+}
+
+.site-footer__disclaimer {
+    color: white;
+    height: 7vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.site-footer__disclaimer p {
+    margin: 0px;
+    text-transform: capitalize;
+}
+
 @media (max-width: 1200px) {
     .navbar-links-ul {
         padding-left: 4rem;
@@ -270,6 +396,40 @@ button:hover {
         opacity: 1;
         visibility: visible;
         transition: all 0.3s ease-in-out;
+    }
+
+    .first-footer-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section__social,
+    .footer-section__newsletter,
+    .footer-section__app {
+        align-items: center;
+        padding: 1.5rem 0px 1.5rem 0px;
+        width: 90%;
+        border-bottom: 1px solid #e3e3e3;
+    }
+
+    .footer-section__social h5,
+    .footer-section__newsletter h5,
+    .footer-section__app h5 {
+        margin: 0px 0px 2rem 0px;
+    }
+
+    .footer-social-icons {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .footer-app__input {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-app__input input {
+        width: 80%;
     }
 }
 
