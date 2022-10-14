@@ -224,9 +224,18 @@ button:hover {
     align-items: center;
 }
 
+.footer-social-icons a:hover {
+    background-color: white;
+    border: 1px solid black;
+}
+
 .footer-social-icons a i {
     font-size: 18px;
     color: white;
+}
+
+.footer-social-icons a:hover i {
+    color: black;
 }
 
 .footer-section__newsletter {
