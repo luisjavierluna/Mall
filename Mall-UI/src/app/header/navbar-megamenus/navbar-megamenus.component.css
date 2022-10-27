@@ -52,6 +52,12 @@
     transition: all 0.3s ease-in-out;
 }
 
+@media (max-width: 1200px) {
+    .mega-box .content {
+        padding: 5px 20px;
+    }
+}
+
 @media (max-width: 768px) {
     .content {
         background: white;

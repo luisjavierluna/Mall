@@ -6,7 +6,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MenuModelComponent } from './mega-boxes/menu-model/menu-model.component';
 import { CarouselComponent } from './landing-page/carousel/carousel.component';
 import { DepartmentsComponent } from './departments/departments/departments.component';
 import { CategoriesComponent } from './categories/categories/categories.component';
@@ -17,12 +16,13 @@ import { CreateCategoryComponent } from './categories/create-category/create-cat
 import { EditCategoryComponent } from './categories/edit-category/edit-category.component';
 import { CreateProductComponent } from './products/create-product/create-product.component';
 import { EditProductComponent } from './products/edit-product/edit-product.component';
+import { NavbarMenusComponent } from './header/navbar-menus/navbar-menus.component';
+import { NavbarMegamenusComponent } from './header/navbar-megamenus/navbar-megamenus.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    MenuModelComponent,
     CarouselComponent,
     DepartmentsComponent,
     CategoriesComponent,
@@ -32,7 +32,9 @@ import { EditProductComponent } from './products/edit-product/edit-product.compo
     CreateCategoryComponent,
     EditCategoryComponent,
     CreateProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    NavbarMenusComponent,
+    NavbarMegamenusComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+<div class="content" >
+    <div *ngFor="let area of headerMenuAreasParam; let i = index">
+        <div class="row">
+            <header>{{area.name}}</header>
+            <ul class="mega-links" *ngFor="let subarea of area.subareas">
+                <li><a href="#">{{subarea.name}}</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

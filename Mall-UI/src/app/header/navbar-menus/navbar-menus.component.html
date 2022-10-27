@@ -1,0 +1,21 @@
+<div class="nav-menu-items">
+    <div class="navbar-links" (mouseenter)="dimScreen()" (mouseleave)="dimScreen()">
+        <i class="fa-solid fa-bars" (click)="showNavbarLinksUl()"></i>
+        <ul class="navbar-links-ul"  [class.show-navbar-links-ul]="navbarLinksVariable">
+            
+            <li *ngFor="let department of headerMenuDepartments">
+                <a href="#" (click)="showComputersUl()">
+                    {{department.name}}
+                    <i class="fa-solid fa-caret-down"></i>
+                </a>
+                <div class="mega-box" [class.show-mega-box-computers]="computersMBVariable">
+                    
+                    <app-navbar-megamenus [headerMenuAreasParam]="department.areas"></app-navbar-megamenus>
+    
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+

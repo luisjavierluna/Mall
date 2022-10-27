@@ -27,88 +27,24 @@
         </div>
     </div>
 
+    <!-- ///////////////////////////////////////////////////// -->
+
     <nav class="site-header__menu">
-        <div class="navbar-links" (mouseenter)="dimScreen()" (mouseleave)="dimScreen()">
-            <i class="fa-solid fa-bars" (click)="showNavbarLinksUl()"></i>
-            <ul class="navbar-links-ul"  [class.show-navbar-links-ul]="navbarLinksVariable">
-                <li>
-                    <a href="#" (click)="showComputersUl()">
-                        Computers
-                        <i class="fa-solid fa-caret-down"></i>
-                    </a>
-                    <div class="mega-box" [class.show-mega-box-computers]="computersMBVariable">
-                        
-                        <app-menu-model [departmentAreasModel]="computerAreas"></app-menu-model>
+        
+        <app-navbar-menus></app-navbar-menus>
 
-                    </div>
-                </li>
-                <li>
-                    <a href="#" (click)="showConsolesUl()">
-                        Consoles
-                        <i class="fa-solid fa-caret-down"></i>
-                    </a>
-                    <div class="mega-box" [class.show-mega-box-consoles]="consolesMBVariable">
-                        
-                        <app-menu-model [departmentAreasModel]="consoleAreas"></app-menu-model>
-
-                    </div>
-                </li>
-                <li>
-                    <a href="#" (click)="showVideogamesUl()">
-                        Videogames
-                        <i class="fa-solid fa-caret-down"></i>
-                    </a>
-                    <div class="mega-box" [class.show-mega-box-videogames]="videogamesMBVariable">
-                        
-                        <app-menu-model [departmentAreasModel]="videogameAreas"></app-menu-model>
-
-                    </div>
-                </li>
-                <li>
-                    <a href="#" (click)="showComponentsUl()">
-                        Components
-                        <i class="fa-solid fa-caret-down"></i>
-                    </a>
-                    <div class="mega-box" [class.show-mega-box-components]="componentsMBVariable">
-                        
-                        <app-menu-model [departmentAreasModel]="componentAreas"></app-menu-model>
-
-                    </div>
-                </li>
-                <li>
-                    <a href="#" (click)="showAccesoriesUl()">
-                        Accessories
-                        <i class="fa-solid fa-caret-down"></i>
-                    </a>
-                    <div class="mega-box" [class.show-mega-box-accesories]="accesoriesMBVariable">
-                        
-                        <app-menu-model [departmentAreasModel]="accesoryAreas"></app-menu-model>
-
-                    </div>
-                </li>
-                <li>
-                    <a href="#" (click)="showWorkstationUl()">
-                        Workstations
-                        <i class="fa-solid fa-caret-down"></i>
-                    </a>
-                    <div class="mega-box" [class.show-mega-box-workstation]="workstationMBVariable">
-                        
-                        <app-menu-model [departmentAreasModel]="workstationAreas"></app-menu-model>
-
-                    </div>
-                </li>
-            </ul>
-        </div>
     </nav>
+    
+    <!-- ///////////////////////////////////////////////////// -->
 </header>
 
 <div [class.home-content]="homeVariable">
     
-    <router-outlet></router-outlet>
+    <!-- <router-outlet></router-outlet> -->
     
 </div>
 
-<footer class="site-footer">
+<!-- <footer class="site-footer">
     <div class="site-footer__header" >
         <div class="footer-lines"></div>
         <div class="site-header__logo">
@@ -153,4 +89,4 @@
         <p>© 2022 Infinite. All rights reserved.</p>
     </div>
 
-</footer>
+</footer> -->
