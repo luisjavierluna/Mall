@@ -15,60 +15,60 @@ export class NavbarMenusComponent implements OnInit {
       id: 1,
       name: 'Computer', 
       areas: [
-        {id: 1, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 2, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 3, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 4, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 1, name: 'Computer', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 2, name: 'Computer', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 3, name: 'Computer', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 4, name: 'Computer', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
       ]
     },
     {
       id: 2,
       name: 'Consoles', 
       areas: [
-        {id: 1, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 2, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 3, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 4, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 1, name: 'Consoles', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 2, name: 'Consoles', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 3, name: 'Consoles', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 4, name: 'Consoles', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
       ]
     },
     {
       id: 3,
       name: 'Videogames', 
       areas: [
-        {id: 1, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 2, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 3, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 4, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 1, name: 'Videogames', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 2, name: 'Videogames', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 3, name: 'Videogames', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 4, name: 'Videogames', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
       ]
     },
     {
       id: 4,
       name: 'Components', 
       areas: [
-        {id: 1, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 2, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 3, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 4, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 1, name: 'Components', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 2, name: 'Components', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 3, name: 'Components', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 4, name: 'Components', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
       ]
     },
     {
       id: 5,
       name: 'Accessories', 
       areas: [
-        {id: 1, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 2, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 3, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 4, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 1, name: 'Accessories', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 2, name: 'Accessories', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 3, name: 'Accessories', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 4, name: 'Accessories', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
       ]
     },
     {
       id: 6,
       name: 'Workstations', 
       areas: [
-        {id: 1, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 2, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 3, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
-        {id: 4, name: 'PCs', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 1, name: 'Workstations', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 2, name: 'Workstations', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 3, name: 'Workstations', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
+        {id: 4, name: 'Workstations', subareas: [{id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}, {id:1, name: 'Laptop 1'}]},
       ]
     },
   ]

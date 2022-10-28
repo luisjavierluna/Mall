@@ -29,7 +29,7 @@ a {
     margin-bottom: 0;
 }
 
-.navbar-links-ul li {
+.navbar-links-ul-li {
     list-style: none;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -37,23 +37,23 @@ a {
     border-bottom: black
 }
 
-.navbar-links-ul li a {
+.navbar-links-ul-li a {
     display: flex;
     align-items: center;
     height: 100%;
 }
 
-.navbar-links-ul li a i {
+.navbar-links-ul-li a i {
     margin-left: 0.4rem;
     transition: all 0.3s ease-in-out;
 }
 
-.navbar-links-ul li:hover a i {
+.navbar-links-ul-li:hover a i {
     transform: rotate(180deg);
     transition: all 0.3s ease-in-out;
 }
 
-.navbar-links-ul li:hover a {
+.navbar-links-ul-li:hover a {
     color: rgb(82, 82, 82);
     border-bottom: 1px solid black;
     transition: all 0.3s ease-in-out;
@@ -77,6 +77,10 @@ a {
     opacity: 1;
     visibility: visible;
     transition: all 0.3s ease;
+}
+
+.accordion {
+    display: none;
 }
 
 
@@ -121,7 +125,7 @@ a {
         transition: all 0.3s ease; 
     }
 
-    .navbar-links-ul li {
+    .navbar-links-ul-li {
         width: 100%;
     }
 
@@ -158,7 +162,7 @@ a {
         transition: all 0.3s ease-in-out;
     }
 
-    .navbar-links-ul li:hover .mega-box {
+    .navbar-links-ul-li:hover .mega-box {
         opacity: 1;
         visibility: visible;
         transition: all 0.3s ease-in-out;
@@ -167,6 +171,7 @@ a {
 }
 
 @media (max-width: 576px) {
+    
     .navbar-links {
         position: relative;
         height: 100%;
@@ -180,6 +185,7 @@ a {
 
     .navbar-links-ul {
         display: none;
+        padding: 0%;
     }
 
     .show-navbar-links-ul {
@@ -199,19 +205,42 @@ a {
     .mega-box {
         display: none;
     }
-    
-    .show-mega-box-computers,
-    .show-mega-box-consoles,
-    .show-mega-box-videogames,
-    .show-mega-box-components,
-    .show-mega-box-accesories,
-    .show-mega-box-workstation {
-        position: static;
-        width: 100%;
-        display: block;
-        opacity: 1;
-        visibility: visible;
+
+    .navbar-links-ul-li {
+        display: none;
     }
 
+    .accordion {
+        display: flex;
+    }
+
+    .accordion-item {
+        width: 100%;
+    }
+
+    .accordion-header {
+        border-bottom: 1px solid black;
+    }
+
+    .accordion-button {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        font-size: 14px;
+    }
     
+    .accordion-button::after {
+        display: none;
+        margin: 0px 0px 0px 5px;
+    }
+
+    .accordion-button:not(.collapsed) {
+        background-color: rgb(252, 252, 252);
+        color: black;
+    }
+
+    .accordion-button:focus {
+        border-color: rgb(174, 174, 174);
+        box-shadow: 0 0 0 .25rem rgba(192, 192, 192, 0.25);
+      }
 }

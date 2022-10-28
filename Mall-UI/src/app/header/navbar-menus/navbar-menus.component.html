@@ -3,15 +3,28 @@
         <i class="fa-solid fa-bars" (click)="showNavbarLinksUl()"></i>
         <ul class="navbar-links-ul"  [class.show-navbar-links-ul]="navbarLinksVariable">
             
-            <li *ngFor="let department of headerMenuDepartments">
-                <a href="#" (click)="showComputersUl()">
+            <li *ngFor="let department of headerMenuDepartments" class="navbar-links-ul-li">
+                <a href="#">
                     {{department.name}}
                     <i class="fa-solid fa-caret-down"></i>
                 </a>
-                <div class="mega-box" [class.show-mega-box-computers]="computersMBVariable">
-                    
+                <div class="mega-box">
                     <app-navbar-megamenus [headerMenuAreasParam]="department.areas"></app-navbar-megamenus>
-    
+                </div>
+            </li>
+
+            <li *ngFor="let department of headerMenuDepartments" class="accordion accordion-flush">
+                <div class="accordion-item">
+                    <div class="accordion-header" id="{{department.id}}">
+                        <a href="#" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#' + department.name" aria-expanded="true" [attr.aria-controls]="department.name">
+                            {{department.name}}
+                        </a>
+                    </div>
+                    <div id="{{department.name}}" class="accordion-collapse collapse" [attr.aria-labelledby]="department.id">
+                        <div class="accordion-body">
+                            <app-navbar-megamenus [headerMenuAreasParam]="department.areas"></app-navbar-megamenus>
+                        </div>
+                    </div>
                 </div>
             </li>
             
