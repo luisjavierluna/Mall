@@ -1,5 +1,5 @@
 <div class="nav-menu-items">
-    <div class="navbar-links" (mouseenter)="dimScreen()" (mouseleave)="dimScreen()">
+    <div class="navbar-links">
         <i class="fa-solid fa-bars" (click)="showNavbarLinksUl()"></i>
         <ul class="navbar-links-ul"  [class.show-navbar-links-ul]="navbarLinksVariable">
             
@@ -9,7 +9,7 @@
                     <i class="fa-solid fa-caret-down"></i>
                 </a>
                 <div class="mega-box">
-                    <app-navbar-megamenus [headerMenuAreasParam]="department.areas"></app-navbar-megamenus>
+                    <app-navbar-megamenus [headerMenuCategoriesParam]="department.categories"></app-navbar-megamenus>
                 </div>
             </li>
 
@@ -22,7 +22,7 @@
                     </div>
                     <div id="{{department.name}}" class="accordion-collapse collapse" [attr.aria-labelledby]="department.id">
                         <div class="accordion-body">
-                            <app-navbar-megamenus [headerMenuAreasParam]="department.areas"></app-navbar-megamenus>
+                            <app-navbar-megamenus [headerMenuCategoriesParam]="department.categories"></app-navbar-megamenus>
                         </div>
                     </div>
                 </div>

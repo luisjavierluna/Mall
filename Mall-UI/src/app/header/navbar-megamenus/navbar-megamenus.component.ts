@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MenuCategory } from 'src/app/models/category';
 
 @Component({
   selector: 'app-navbar-megamenus',
@@ -10,7 +11,7 @@ export class NavbarMegamenusComponent implements OnInit {
   constructor() { }
 
   @Input()
-  headerMenuAreasParam: any
+  headerMenuCategoriesParam: MenuCategory[] = []
 
   ngOnInit(): void {
   }

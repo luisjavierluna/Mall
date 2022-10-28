@@ -1,9 +1,9 @@
 <div class="content" >
-    <div *ngFor="let area of headerMenuAreasParam; let i = index">
+    <div *ngFor="let category of headerMenuCategoriesParam; let i = index">
         <div class="row">
-            <header>{{area.name}}</header>
-            <ul class="mega-links" *ngFor="let subarea of area.subareas">
-                <li><a href="#">{{subarea.name}}</a></li>
+            <header>{{category.name}}</header>
+            <ul class="mega-links" *ngFor="let product of category.products">
+                <li><a href="#">{{product.name}}</a></li>
             </ul>
         </div>
     </div>
