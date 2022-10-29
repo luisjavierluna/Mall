@@ -15,6 +15,19 @@ namespace Mall_API.Controller
             this._context = _context;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetDepartments()
+        {
+            var departments = await _context.Departments.Select(p =>
+            new
+            {
+                Id = p.Id,
+                Name = p.Name
+            }).ToListAsync();
+
+            return Ok(departments);
+        }
+
         [HttpGet("navbarMenuItems")]
         public async Task<IActionResult> GetAllMenuItems()
         {

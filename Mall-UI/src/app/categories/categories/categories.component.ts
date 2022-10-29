@@ -24,7 +24,4 @@ export class CategoriesComponent implements OnInit {
       error: error => {console.log(error)}
     })
   }
-
-  
-
 }
