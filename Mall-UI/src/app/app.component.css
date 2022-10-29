@@ -107,6 +107,10 @@ app-navbar-menus {
     display: none;
 }
 
+.home-content {
+    margin-top: 95px;
+}
+
 .site-footer {
     padding-top: 40px;
 }
