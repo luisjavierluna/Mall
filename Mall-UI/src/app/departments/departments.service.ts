@@ -20,4 +20,8 @@ export class DepartmentsService {
   getAllMenuDepartments(): Observable<MenuDepartment[]>{
     return this.http.get<MenuDepartment[]>(`${this.apiURL}/navbarMenuItems`)
   }
+
+  public add(department: Department):Observable<Department>{
+    return this.http.post<Department>(this.apiURL, department)
+  }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Mall_API.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -51,6 +52,15 @@ namespace Mall_API.Controller
                 }).ToListAsync();
 
             return Ok(departments);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PostDepartment([FromBody] Department department)
+        {
+            await _context.Departments.AddAsync(department);
+            await _context.SaveChangesAsync();
+
+            return Ok(department);
         }
     }
 }

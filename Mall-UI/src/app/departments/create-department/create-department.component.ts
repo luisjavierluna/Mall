@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Department } from 'src/app/models/department';
+import { DepartmentsService } from '../departments.service';
 
 @Component({
   selector: 'app-create-department',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateDepartmentComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private departmentsService: DepartmentsService,
+    private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  saveChanges(department: Department){
+    this.departmentsService.add(department)
+    .subscribe({
+      next: () => {this.router.navigate(['/departments'])}
+    })
   }
 
 }
