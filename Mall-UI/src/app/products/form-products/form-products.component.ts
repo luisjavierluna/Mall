@@ -13,7 +13,7 @@ import { Product } from 'src/app/models/product';
 })
 export class FormProductsComponent implements OnInit {
 
-  constructor(private formBuiolder: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
     private departmentsService: DepartmentsService,
     private categoriesService: CategoriesService) { }
 
@@ -22,7 +22,7 @@ export class FormProductsComponent implements OnInit {
   @Output()
   onSubmit: EventEmitter<Product> = new EventEmitter<Product>()
 
-  form: FormGroup = this.formBuiolder.group({})
+  form: FormGroup = this.formBuilder.group({})
   departmentsSelectListOptions: Department[] = []
   categories: Category[] = []
   categoriesSelectListOptions: Category[] = []
@@ -31,7 +31,7 @@ export class FormProductsComponent implements OnInit {
     this.getAllCategories()
     this.getAllDepartments()
 
-    this.form = this.formBuiolder.group({
+    this.form = this.formBuilder.group({
       name: '',
       categoryId: '',
       departmentId: ''

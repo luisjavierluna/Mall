@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Category } from 'src/app/models/category';
+import { CategoriesService } from '../categories.service';
 
 @Component({
   selector: 'app-create-category',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateCategoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private categoriesService: CategoriesService,
+    private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  saveChanges(category: Category){
+    this.categoriesService.add(category)
+    .subscribe({
+      next: () => {this.router.navigate(['/categories'])}
+    })
   }
 
 }

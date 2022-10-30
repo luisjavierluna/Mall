@@ -16,7 +16,6 @@ export class ProductsService {
   public getAll():Observable<Product[]>{
     return this.http.get<Product[]>(this.apiURL)
   }
-
   
   public add(product: Product):Observable<Product>{
     return this.http.post<Product>(this.apiURL, product)
