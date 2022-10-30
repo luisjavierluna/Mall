@@ -33,5 +33,14 @@ namespace Mall_API.Controller
 
             return Ok(products);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> PostSubarea([FromBody] Product product)
+        {
+            await _context.Products.AddAsync(product);
+            await _context.SaveChangesAsync();
+
+            return Ok(product);
+        }
     }
 }

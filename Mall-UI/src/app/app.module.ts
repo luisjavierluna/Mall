@@ -18,6 +18,9 @@ import { CreateProductComponent } from './products/create-product/create-product
 import { EditProductComponent } from './products/edit-product/edit-product.component';
 import { NavbarMenusComponent } from './header/navbar-menus/navbar-menus.component';
 import { NavbarMegamenusComponent } from './header/navbar-megamenus/navbar-megamenus.component';
+import { FormProductsComponent } from './products/form-products/form-products.component';
+import { FormCategoriesComponent } from './categories/form-categories/form-categories.component';
+import { FormDepartmentsComponent } from './departments/form-departments/form-departments.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { NavbarMegamenusComponent } from './header/navbar-megamenus/navbar-megam
     CreateProductComponent,
     EditProductComponent,
     NavbarMenusComponent,
-    NavbarMegamenusComponent
+    NavbarMegamenusComponent,
+    FormProductsComponent,
+    FormCategoriesComponent,
+    FormDepartmentsComponent
   ],
   imports: [
     BrowserModule,
