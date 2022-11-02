@@ -15,13 +15,13 @@ const routes: Routes = [
   {path: '', component: LandingPageComponent},
   {path: 'departments', component: DepartmentsComponent},
   {path: 'departments/create', component: CreateDepartmentComponent},
-  {path: 'departments/edit', component: EditDepartmentComponent},
+  {path: 'departments/edit/:id', component: EditDepartmentComponent},
   {path: 'categories', component: CategoriesComponent},
   {path: 'categories/create', component: CreateCategoryComponent},
-  {path: 'categories/edit', component: EditCategoryComponent},
+  {path: 'categories/edit/:id', component: EditCategoryComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'products/create', component: CreateProductComponent},
-  {path: 'products/edit', component: EditProductComponent},
+  {path: 'products/edit/:id', component: EditProductComponent},
   {path: '**', redirectTo: ''},
 ]
 

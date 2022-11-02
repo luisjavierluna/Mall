@@ -20,4 +20,12 @@ export class ProductsService {
   public add(product: Product):Observable<Product>{
     return this.http.post<Product>(this.apiURL, product)
   }
+
+  public getById(id: number):Observable<Product>{
+    return this.http.get<Product>(`${this.apiURL}/${id}`)
+  }
+
+  public edit(id: number, product: Product):Observable<Product>{
+    return this.http.put<Product>(`${this.apiURL}/${id}`, product)
+  }
 }

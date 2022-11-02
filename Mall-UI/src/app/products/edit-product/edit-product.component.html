@@ -1,1 +1,7 @@
-<p>edit-product works!</p>
+<div class="container">
+    <h3 class="mb-4">Edit Product</h3>
+
+    <app-form-products
+    [productToEditParam]="productToEdit"
+    (onSubmit)="saveChanges($event)"></app-form-products>
+</div>

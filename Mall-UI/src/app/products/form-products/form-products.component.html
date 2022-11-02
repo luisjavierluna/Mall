@@ -1,12 +1,13 @@
 <form [formGroup]="form" (submit)="saveChanges()">
     <div class="form-group mb-3">
-        <label class="form-label" for="">Name</label>
-        <input class="form-control" type="text" formControlName="name" placeholder="Write the product name here...">
+        <label class="form-label">Name</label>
+        <input class="form-control" [ngModel]="productToEditParam.name" type="text" formControlName="name" placeholder="Write the product name here...">
     </div>
 
     <div class="form-group mb-3">
-        <label class="form-label" for="">Department</label>
-        <select [ngModel]="department.id" class="form-select" formControlName="departmentId" 
+        <label class="form-label">Department</label>
+        <select 
+        [ngModel]="productToEditParam.departmentId" class="form-select" formControlName="departmentId" 
         (change)="setCategory()">
             <option *ngFor="let department of departmentsSelectListOptions" [value]="department.id">
                 {{department.name}}
@@ -15,8 +16,8 @@
     </div>
 
     <div class="form-group mb-3">
-        <label class="form-label" for="">Category</label>
-        <select class="form-select" formControlName="categoryId">
+        <label class="form-label">Category</label>
+        <select [ngModel]="productToEditParam.categoryId" class="form-select" formControlName="categoryId">
             <option *ngFor="let category of categoriesSelectListOptions" [value]="category.id">
                 {{category.name}}
             </option>
