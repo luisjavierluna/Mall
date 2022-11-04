@@ -1,9 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DepartmentsService } from 'src/app/departments/departments.service';
 import { Category } from 'src/app/models/category';
 import { Department } from 'src/app/models/department';
-import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-form-categories',
@@ -12,8 +11,12 @@ import { Product } from 'src/app/models/product';
 })
 export class FormCategoriesComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private formBuilder: FormBuilder,
     private departmentsService: DepartmentsService) { }
+
+  @Input()
+  categoryToEditParam: Category = {id: 0, name: '', departmentId: 0, departmentName: ''}
 
   @Output()
   onSubmit: EventEmitter<Category> = new EventEmitter<Category>()

@@ -40,5 +40,36 @@ namespace Mall_API.Controller
 
             return Ok(category);
         }
+
+        [HttpGet("{Id:int}")]
+        public async Task<IActionResult> GetCategory(int Id)
+        {
+            var existingCategory = await _context.Categories.FirstOrDefaultAsync(x => x.Id == Id);
+
+            if (existingCategory == null)
+            {
+                return NotFound("Category not found");
+            }
+
+            return Ok(existingCategory);
+        }
+
+        [HttpPut("{Id:int}")]
+        public async Task<IActionResult> PutCategory([FromBody] Category newCategory, int Id)
+        {
+            var categoryToUpdate = await _context.Categories.FirstOrDefaultAsync(x => x.Id == Id);
+
+            if (categoryToUpdate == null)
+            {
+                return NotFound("Category not found");
+            }
+
+            categoryToUpdate.Name = newCategory.Name;
+            categoryToUpdate.DepartmentId = newCategory.DepartmentId;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(categoryToUpdate);
+        }
     }
 }
