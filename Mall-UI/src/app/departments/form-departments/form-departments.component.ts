@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Category } from 'src/app/models/category';
+import { Department } from 'src/app/models/department';
 
 @Component({
   selector: 'app-form-departments',
@@ -10,6 +11,9 @@ import { Category } from 'src/app/models/category';
 export class FormDepartmentsComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
+
+  @Input()
+  departmentToEditParam: Department = {id: 0, name: ''}
 
   @Output()
   onSubmit: EventEmitter<Category> = new EventEmitter<Category>()

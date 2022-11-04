@@ -62,5 +62,35 @@ namespace Mall_API.Controller
 
             return Ok(department);
         }
+
+        [HttpGet("{Id:int}")]
+        public async Task<IActionResult> GetDepartment(int Id)
+        {
+            var existingDepartment = await _context.Departments.FirstOrDefaultAsync(x => x.Id == Id);
+
+            if (existingDepartment == null)
+            {
+                return NotFound("Department not found");
+            }
+
+            return Ok(existingDepartment);
+        }
+
+        [HttpPut("{Id:int}")]
+        public async Task<IActionResult> PutDepartment([FromBody] Department newDepartment, int Id)
+        {
+            var departmentToUpdate = await _context.Departments.FirstOrDefaultAsync(x => x.Id == Id);
+
+            if (departmentToUpdate == null)
+            {
+                return NotFound("Department not found");
+            }
+
+            departmentToUpdate.Name = newDepartment.Name;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(departmentToUpdate);
+        }
     }
 }
