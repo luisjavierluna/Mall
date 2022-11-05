@@ -28,4 +28,8 @@ export class ProductsService {
   public edit(id: number, product: Product):Observable<Product>{
     return this.http.put<Product>(`${this.apiURL}/${id}`, product)
   }
+
+  public delete(id: number):Observable<Product>{
+    return this.http.delete<Product>(`${this.apiURL}/${id}`)
+  }
 }

@@ -26,4 +26,15 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  delete(id: number){
+    this.productsService.delete(id)
+    .subscribe({
+      next: () => {this.reloadCurrentPage()}
+    })
+  }
+
+  reloadCurrentPage(){
+    window.location.reload()
+  }
+
 }
