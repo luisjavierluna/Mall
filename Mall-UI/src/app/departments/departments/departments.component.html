@@ -19,7 +19,11 @@
             <td>
                 <div class="actions">
                     <a class="btn btn-primary" routerLink="/departments/edit/{{department.id}}">Edit</a>
-                    <a class="btn btn-danger">Delete</a>
+                    <a class="btn btn-danger"
+                    [swal]="{title: 'Please confirm', 
+                    text: 'Are you sure you want to delete this Department?', showCancelButton: true}"
+                    (confirm)="delete(department.id)"
+                    >Delete</a>
                 </div>
             </td>
           </tr>

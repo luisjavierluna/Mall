@@ -32,4 +32,8 @@ export class DepartmentsService {
   public edit(id: number, department: Department):Observable<Department>{
     return this.http.put<Department>(`${this.apiURL}/${id}`, department)
   }
+
+  public delete(id: number):Observable<Department>{
+    return this.http.delete<Department>(`${this.apiURL}/${id}`)
+  }
 }
