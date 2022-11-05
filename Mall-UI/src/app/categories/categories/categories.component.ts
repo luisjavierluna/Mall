@@ -24,4 +24,15 @@ export class CategoriesComponent implements OnInit {
       error: error => {console.log(error)}
     })
   }
+
+  delete(id: number){
+    this.categoriesService.delete(id)
+    .subscribe({
+      next: () => {this.reloadCurrentPage()}
+    })
+  }
+
+  reloadCurrentPage(){
+    window.location.reload()
+  }
 }

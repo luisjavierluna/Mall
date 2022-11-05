@@ -28,4 +28,8 @@ export class CategoriesService {
   public edit(id: number, category: Category):Observable<Category>{
     return this.http.put<Category>(`${this.apiURL}/${id}`, category)
   }
+
+  public delete(id: number):Observable<Category>{
+    return this.http.delete<Category>(`${this.apiURL}/${id}`)
+  }
 }

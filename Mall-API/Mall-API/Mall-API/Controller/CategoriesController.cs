@@ -71,5 +71,20 @@ namespace Mall_API.Controller
 
             return Ok(categoryToUpdate);
         }
+
+        [HttpDelete("{Id:int}")]
+        public async Task<IActionResult> DeleteCategory(int Id)
+        {
+            var categoryToDelete = await _context.Categories.FirstOrDefaultAsync(x => x.Id == Id);
+
+            if (categoryToDelete == null)
+            {
+                return NotFound("Category not found");
+            }
+
+            _context.Categories.Remove(categoryToDelete);
+            await _context.SaveChangesAsync();
+            return Ok(categoryToDelete);
+        }
     }
 }
