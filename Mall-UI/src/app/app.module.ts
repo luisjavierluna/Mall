@@ -22,6 +22,7 @@ import { NavbarMegamenusComponent } from './header/navbar-megamenus/navbar-megam
 import { FormProductsComponent } from './products/form-products/form-products.component';
 import { FormCategoriesComponent } from './categories/form-categories/form-categories.component';
 import { FormDepartmentsComponent } from './departments/form-departments/form-departments.component';
+import { InputImgComponent } from './utilities/input-img/input-img.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { FormDepartmentsComponent } from './departments/form-departments/form-de
     FormProductsComponent,
     FormCategoriesComponent,
     FormDepartmentsComponent,
+    InputImgComponent,
   ],
   imports: [
     BrowserModule,

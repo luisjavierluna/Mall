@@ -4,7 +4,7 @@ import { CategoriesService } from 'src/app/categories/categories.service';
 import { DepartmentsService } from 'src/app/departments/departments.service';
 import { Category } from 'src/app/models/category';
 import { Department } from 'src/app/models/department';
-import { Product } from 'src/app/models/product';
+import { Product, ProductCreationDTO } from 'src/app/models/product';
 
 @Component({
   selector: 'app-form-products',
@@ -19,10 +19,10 @@ export class FormProductsComponent implements OnInit {
     private categoriesService: CategoriesService) { }
 
   @Input()
-  productToEditParam: Product = {id: 0, name: '', categoryId: 0, categoryName: '', departmentId: 0, departmentName: ''}
+  productToEditParam: Product = {id: 0, name: '', image: '', categoryId: 0, categoryName: '', departmentId: 0, departmentName: ''}
   
   @Output()
-  onSubmit: EventEmitter<Product> = new EventEmitter<Product>()
+  OnSubmit: EventEmitter<ProductCreationDTO> = new EventEmitter<ProductCreationDTO>()
   
   form: FormGroup = this.formBuilder.group({})
   departmentsSelectListOptions: Department[] = []
@@ -36,7 +36,8 @@ export class FormProductsComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: '',
       categoryId: '',
-      departmentId: ''
+      departmentId: '',
+      image: ''
     })
   }
 
@@ -59,8 +60,12 @@ export class FormProductsComponent implements OnInit {
     })
   }
 
+  selectedFile(file: any){
+    this.form.get('image')?.setValue(file)
+  }
+
   saveChanges(){
-    this.onSubmit.emit(this.form.value)
+    this.OnSubmit.emit(this.form.value)
   }
 
   setCategory(){

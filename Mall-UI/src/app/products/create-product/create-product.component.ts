@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/models/product';
+import { Product, ProductCreationDTO } from 'src/app/models/product';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class CreateProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveChanges(product: Product){
+  saveChanges(product: ProductCreationDTO){
     this.productsService.add(product)
     .subscribe({
       next: () => {this.router.navigate(['/products'])}

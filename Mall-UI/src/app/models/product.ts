@@ -1,6 +1,7 @@
 export interface Product {
     id: number
     name: string
+    image: string
     categoryId: number
     categoryName: string
     departmentId: number
@@ -10,4 +11,11 @@ export interface Product {
 export interface MenuProduct {
     id: number
     name: string
+}
+
+export interface ProductCreationDTO {
+    name: string
+    image: string
+    categoryId: number
+    departmentId: number
 }

@@ -2,6 +2,7 @@
     <h3 class="mb-4">Edit Product</h3>
 
     <app-form-products
+    *ngIf="productToEdit"
     [productToEditParam]="productToEdit"
-    (onSubmit)="saveChanges($event)"></app-form-products>
+    (OnSubmit)="saveChanges($event)"></app-form-products>
 </div>
