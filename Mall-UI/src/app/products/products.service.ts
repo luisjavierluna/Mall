@@ -18,7 +18,8 @@ export class ProductsService {
   }
   
   public add(product: ProductCreationDTO):Observable<ProductCreationDTO>{
-    return this.http.post<ProductCreationDTO>(this.apiURL, product)
+    const formData = this.buildFormData(product)
+    return this.http.post<ProductCreationDTO>(this.apiURL, formData)
   }
 
   public getById(id: number):Observable<Product>{
@@ -26,10 +27,25 @@ export class ProductsService {
   }
 
   public edit(id: number, product: ProductCreationDTO):Observable<ProductCreationDTO>{
-    return this.http.put<ProductCreationDTO>(`${this.apiURL}/${id}`, product)
+    const formData = this.buildFormData(product)
+    return this.http.put<ProductCreationDTO>(`${this.apiURL}/${id}`, formData)
   }
 
   public delete(id: number):Observable<Product>{
     return this.http.delete<Product>(`${this.apiURL}/${id}`)
+  }
+
+  private buildFormData(product: ProductCreationDTO): FormData {
+    const formData = new FormData()
+    formData.append('name', product.name)
+
+    if(product.image){
+      formData.append('image', product.image)
+    }
+
+    formData.append('categoryId', product.categoryId.toString())
+    formData.append('departmentId', product.departmentId.toString())
+
+    return formData
   }
 }

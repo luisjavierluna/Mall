@@ -1,4 +1,7 @@
-﻿using Mall_API.Entities;
+﻿using AutoMapper;
+using Mall_API.DTOs;
+using Mall_API.Entities;
+using Mall_API.Utilities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,10 +13,18 @@ namespace Mall_API.Controller
     public class ProductsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly IMapper mapper;
+        private readonly IFileStorage fileStorage;
+        private readonly string container = "products";
 
-        public ProductsController(ApplicationDbContext _context)
+        public ProductsController(
+            ApplicationDbContext _context,
+            IMapper mapper,
+            IFileStorage fileStorage)
         {
             this._context = _context;
+            this.mapper = mapper;
+            this.fileStorage = fileStorage;
         }
 
         [HttpGet]
@@ -24,6 +35,7 @@ namespace Mall_API.Controller
             {
                 Id = p.Id,
                 Name = p.Name,
+                Image = p.Image,
                 CategoryId = p.Category.Id,
                 CategoryName = p.Category.Name,
                 DepartmentId = p.Department.Id,
@@ -35,8 +47,15 @@ namespace Mall_API.Controller
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostProduct([FromBody] Product product)
+        public async Task<IActionResult> PostProduct([FromForm] ProductCreationDTO productCreationDTO)
         {
+            var product = mapper.Map<Product>(productCreationDTO);
+
+            if (productCreationDTO.Image != null)
+            {
+                product.Image = await fileStorage.SaveFile(container, productCreationDTO.Image);
+            }
+
             await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
 
