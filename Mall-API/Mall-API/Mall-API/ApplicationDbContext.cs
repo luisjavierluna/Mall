@@ -45,6 +45,8 @@ namespace Mall_API
 
                 product.Property(s => s.Name).IsRequired();
 
+                product.Property(s => s.Image);
+
                 product.HasOne(s => s.Category)
                 .WithMany(a => a.Products)
                 .HasForeignKey(s => s.CategoryId)
