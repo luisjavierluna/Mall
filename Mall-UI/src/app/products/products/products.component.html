@@ -8,6 +8,7 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Product</th>
+          <th scope="col">Image</th>
           <th scope="col">Category</th>
           <th scope="col">Department</th>
           <th scope="col">Actions</th>
@@ -18,6 +19,7 @@
         <tr *ngFor="let product of products; let i = index">
           <td scope="row">{{i + 1}}</td>
           <td>{{product.name}}</td>
+          <td><img [src]="product.image" alt="Image not found"></td>
           <td>{{product.categoryName}}</td>
           <td>{{product.departmentName}}</td>
           <td>

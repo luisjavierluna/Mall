@@ -24,6 +24,8 @@ export class FormProductsComponent implements OnInit {
   @Output()
   OnSubmit: EventEmitter<ProductCreationDTO> = new EventEmitter<ProductCreationDTO>()
   
+  productImageChanged = false
+
   form: FormGroup = this.formBuilder.group({})
   departmentsSelectListOptions: Department[] = []
   categories: Category[] = []
@@ -61,10 +63,15 @@ export class FormProductsComponent implements OnInit {
   }
 
   selectedFile(file: any){
+    this.productImageChanged = true
     this.form.get('image')?.setValue(file)
   }
 
   saveChanges(){
+    if(!this.productImageChanged){
+      this.form.patchValue({'image': null})
+    }
+
     this.OnSubmit.emit(this.form.value)
   }
 

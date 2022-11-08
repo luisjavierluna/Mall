@@ -21,3 +21,8 @@ a {
 .actions {
     display: flex;
 }
+
+img {
+    height: 60px;
+    width:  auto;
+}

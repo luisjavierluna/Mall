@@ -76,7 +76,7 @@ namespace Mall_API.Controller
         }
 
         [HttpPut("{Id:int}")]
-        public async Task<IActionResult> PutProduct([FromBody] Product newProduct, int Id)
+        public async Task<IActionResult> PutProduct([FromForm] ProductCreationDTO newProduct, int Id)
         {
             var productToUpdate = await _context.Products.FirstOrDefaultAsync(x => x.Id == Id);
 
@@ -85,9 +85,12 @@ namespace Mall_API.Controller
                 return NotFound("Product not found");
             }
 
-            productToUpdate.Name = newProduct.Name;
-            productToUpdate.CategoryId = newProduct.CategoryId;
-            productToUpdate.DepartmentId = newProduct.DepartmentId;
+            productToUpdate = mapper.Map(newProduct, productToUpdate);
+
+            if (newProduct.Image != null)
+            {
+                productToUpdate.Image = await fileStorage.EditFile(container, newProduct.Image, productToUpdate.Image);
+            }
 
             await _context.SaveChangesAsync();
 
