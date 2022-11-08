@@ -109,6 +109,9 @@ namespace Mall_API.Controller
 
             _context.Products.Remove(productToDelete);
             await _context.SaveChangesAsync();
+
+            await fileStorage.DeleteFile(productToDelete.Image, container);
+
             return Ok(productToDelete);
         }
     }
