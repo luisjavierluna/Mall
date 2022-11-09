@@ -33,9 +33,9 @@ namespace Mall_API.Controller
             var products = await _context.Products.Select(p =>
             new
             {
-                Id = p.Id,
-                Name = p.Name,
-                Image = p.Image,
+                p.Id,
+                p.Name,
+                p.Image,
                 CategoryId = p.Category.Id,
                 CategoryName = p.Category.Name,
                 DepartmentId = p.Department.Id,

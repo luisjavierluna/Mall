@@ -1,4 +1,7 @@
-﻿using Mall_API.Entities;
+﻿using AutoMapper;
+using Mall_API.DTOs;
+using Mall_API.Entities;
+using Mall_API.Utilities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,22 +13,31 @@ namespace Mall_API.Controller
     public class CategoriesController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly IMapper mapper;
+        private readonly IFileStorage fileStorage;
+        private readonly string container = "categories";
 
-        public CategoriesController(ApplicationDbContext _context)
+        public CategoriesController(
+            ApplicationDbContext _context,
+            IMapper mapper,
+            IFileStorage fileStorage)
         {
             this._context = _context;
+            this.mapper = mapper;
+            this.fileStorage = fileStorage;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetCategories()
         {
-            var categories = await _context.Categories.Select(p =>
+            var categories = await _context.Categories.Select(c =>
             new
             {
-                Id = p.Id,
-                Name = p.Name,
-                DepartmentId = p.Department.Id,
-                DepartmentName = p.Department.Name
+                c.Id,
+                c.Name,
+                c.Image,
+                DepartmentId = c.Department.Id,
+                DepartmentName = c.Department.Name
 
             }).ToListAsync();
 
@@ -33,8 +45,15 @@ namespace Mall_API.Controller
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostCategory([FromBody] Category category)
+        public async Task<IActionResult> PostCategory([FromForm] CategoryCreationDTO categoryCreationDTO)
         {
+            var category = mapper.Map<Category>(categoryCreationDTO);
+
+            if (categoryCreationDTO.Image != null)
+            {
+                category.Image = await fileStorage.SaveFile(container, categoryCreationDTO.Image);
+            }
+
             await _context.Categories.AddAsync(category);
             await _context.SaveChangesAsync();
 

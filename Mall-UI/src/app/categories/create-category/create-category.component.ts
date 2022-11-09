@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Category } from 'src/app/models/category';
+import { Category, CategoryCreationDTO } from 'src/app/models/category';
 import { CategoriesService } from '../categories.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class CreateCategoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveChanges(category: Category){
+  saveChanges(category: CategoryCreationDTO){
     this.categoriesService.add(category)
     .subscribe({
       next: () => {this.router.navigate(['/categories'])}

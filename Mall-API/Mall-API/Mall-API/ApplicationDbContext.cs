@@ -26,13 +26,15 @@ namespace Mall_API
             {
                 category.ToTable("Categories");
 
-                category.HasKey(a => a.Id);
+                category.HasKey(c => c.Id);
 
-                category.Property(a => a.Name).IsRequired();
+                category.Property(c => c.Name).IsRequired();
 
-                category.HasOne(a => a.Department)
+                category.Property(c => c.Image);
+
+                category.HasOne(c => c.Department)
                     .WithMany(d => d.Categories)
-                    .HasForeignKey(a => a.DepartmentId)
+                    .HasForeignKey(c => c.DepartmentId)
                     .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
             });
@@ -41,21 +43,21 @@ namespace Mall_API
             {
                 product.ToTable("Products");
 
-                product.HasKey(s => s.Id);
+                product.HasKey(p => p.Id);
 
-                product.Property(s => s.Name).IsRequired();
+                product.Property(p => p.Name).IsRequired();
 
-                product.Property(s => s.Image);
+                product.Property(p => p.Image);
 
-                product.HasOne(s => s.Category)
-                .WithMany(a => a.Products)
-                .HasForeignKey(s => s.CategoryId)
+                product.HasOne(p => p.Category)
+                .WithMany(c => c.Products)
+                .HasForeignKey(p => p.CategoryId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 
-                product.HasOne(s => s.Department)
+                product.HasOne(p => p.Department)
                 .WithMany(d => d.Products)
-                .HasForeignKey(s => s.DepartmentId)
+                .HasForeignKey(p => p.DepartmentId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
             });

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Category } from 'src/app/models/category';
+import { Category, CategoryCreationDTO } from 'src/app/models/category';
 import { Product } from 'src/app/models/product';
 import { CategoriesService } from '../categories.service';
 
@@ -16,7 +16,7 @@ export class EditCategoryComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router) { }
 
-  categoryToEdit: Category = {id: 0, name: '', departmentId: 0, departmentName: ''}
+  categoryToEdit: Category = {id: 0, name: '', image: '', departmentId: 0, departmentName: ''}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -28,7 +28,7 @@ export class EditCategoryComponent implements OnInit {
     })
   }
 
-  saveChanges(category: Category){
+  saveChanges(category: CategoryCreationDTO){
     this.categoriesService.edit(this.categoryToEdit.id, category)
     .subscribe({
       next: () => {this.router.navigate(['/categories'])}

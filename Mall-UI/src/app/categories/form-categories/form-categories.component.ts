@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DepartmentsService } from 'src/app/departments/departments.service';
-import { Category } from 'src/app/models/category';
+import { Category, CategoryCreationDTO } from 'src/app/models/category';
 import { Department } from 'src/app/models/department';
 
 @Component({
@@ -16,10 +16,10 @@ export class FormCategoriesComponent implements OnInit {
     private departmentsService: DepartmentsService) { }
 
   @Input()
-  categoryToEditParam: Category = {id: 0, name: '', departmentId: 0, departmentName: ''}
+  categoryToEditParam: Category = {id: 0, name: '', image: '', departmentId: 0, departmentName: ''}
 
   @Output()
-  onSubmit: EventEmitter<Category> = new EventEmitter<Category>()
+  OnSubmit: EventEmitter<CategoryCreationDTO> = new EventEmitter<CategoryCreationDTO>()
 
   form: FormGroup = this.formBuilder.group({})
   departmentsSelectListOptions: Department[] = []
@@ -29,7 +29,8 @@ export class FormCategoriesComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       name: '',
-      departmentId: ''
+      departmentId: '',
+      image: ''
     })
   }
 
@@ -42,8 +43,12 @@ export class FormCategoriesComponent implements OnInit {
     })
   }
 
+  selectedFile(file: any){
+    this.form.get('image')?.setValue(file)
+  }
+
   saveChanges(){
-    this.onSubmit.emit(this.form.value)
+    this.OnSubmit.emit(this.form.value)
   }
 
 }

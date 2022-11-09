@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Category } from '../models/category';
+import { Category, CategoryCreationDTO } from '../models/category';
 
 @Injectable({
   providedIn: 'root'
@@ -17,19 +17,34 @@ export class CategoriesService {
     return this.http.get<Category[]>(this.apiURL)
   }
 
-  public add(category: Category):Observable<Category>{
-    return this.http.post<Category>(this.apiURL, category)
+  public add(category: CategoryCreationDTO){
+    const formData = this.buildFormData(category)
+    return this.http.post(this.apiURL, formData)
   }
 
   public getById(id: number):Observable<Category>{
     return this.http.get<Category>(`${this.apiURL}/${id}`)
   }
 
-  public edit(id: number, category: Category):Observable<Category>{
-    return this.http.put<Category>(`${this.apiURL}/${id}`, category)
+  public edit(id: number, category: CategoryCreationDTO){
+    const formData = this.buildFormData(category)
+    return this.http.put(`${this.apiURL}/${id}`, formData)
   }
 
   public delete(id: number):Observable<Category>{
     return this.http.delete<Category>(`${this.apiURL}/${id}`)
+  }
+
+  private buildFormData(category: CategoryCreationDTO): FormData {
+    const formData = new FormData()
+    formData.append('name', category.name)
+
+    if(category.image){
+      formData.append('image', category.image)
+    }
+
+    formData.append('departmentId', category.departmentId.toString())
+
+    return formData
   }
 }

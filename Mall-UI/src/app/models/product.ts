@@ -15,7 +15,7 @@ export interface MenuProduct {
 
 export interface ProductCreationDTO {
     name: string
-    image: string
+    image: File
     categoryId: number
     departmentId: number
 }
