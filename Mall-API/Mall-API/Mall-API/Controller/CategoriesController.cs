@@ -74,7 +74,7 @@ namespace Mall_API.Controller
         }
 
         [HttpPut("{Id:int}")]
-        public async Task<IActionResult> PutCategory([FromBody] Category newCategory, int Id)
+        public async Task<IActionResult> PutCategory([FromForm] CategoryCreationDTO newCategory, int Id)
         {
             var categoryToUpdate = await _context.Categories.FirstOrDefaultAsync(x => x.Id == Id);
 
@@ -83,8 +83,12 @@ namespace Mall_API.Controller
                 return NotFound("Category not found");
             }
 
-            categoryToUpdate.Name = newCategory.Name;
-            categoryToUpdate.DepartmentId = newCategory.DepartmentId;
+            categoryToUpdate = mapper.Map(newCategory, categoryToUpdate);
+
+            if (newCategory.Image != null)
+            {
+                categoryToUpdate.Image = await fileStorage.EditFile(container, newCategory.Image, categoryToUpdate.Image);
+            }
 
             await _context.SaveChangesAsync();
 

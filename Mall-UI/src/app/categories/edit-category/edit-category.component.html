@@ -2,6 +2,7 @@
     <h3 class="mb-4">Edit Category</h3>
 
     <app-form-categories
+    *ngIf="categoryToEdit"
     [categoryToEditParam]="categoryToEdit"
     (OnSubmit)="saveChanges($event)"></app-form-categories>
 </div>

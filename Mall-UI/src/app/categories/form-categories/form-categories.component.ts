@@ -21,6 +21,8 @@ export class FormCategoriesComponent implements OnInit {
   @Output()
   OnSubmit: EventEmitter<CategoryCreationDTO> = new EventEmitter<CategoryCreationDTO>()
 
+  categoryImageChanged = false
+
   form: FormGroup = this.formBuilder.group({})
   departmentsSelectListOptions: Department[] = []
 
@@ -44,10 +46,15 @@ export class FormCategoriesComponent implements OnInit {
   }
 
   selectedFile(file: any){
+    this.categoryImageChanged = true
     this.form.get('image')?.setValue(file)
   }
 
   saveChanges(){
+    if(!this.categoryImageChanged){
+      this.form.patchValue({'image': null})
+    }
+
     this.OnSubmit.emit(this.form.value)
   }
 

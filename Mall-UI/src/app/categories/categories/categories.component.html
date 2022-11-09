@@ -8,6 +8,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Category</th>
+            <th scope="col">Image</th>
             <th scope="col">Department</th>
             <th scope="col">Actions</th>
           </tr>
@@ -17,6 +18,7 @@
           <tr *ngFor="let category of categories; let i = index">
             <td scope="row">{{i + 1}}</td>
             <td>{{category.name}}</td>
+            <td><img [src]="category.image" alt="Image not found"></td>
             <td>{{category.departmentName}}</td>
             <td>
               <div class="actions">
