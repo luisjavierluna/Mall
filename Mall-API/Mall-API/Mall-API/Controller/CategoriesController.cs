@@ -107,6 +107,9 @@ namespace Mall_API.Controller
 
             _context.Categories.Remove(categoryToDelete);
             await _context.SaveChangesAsync();
+
+            await fileStorage.DeleteFile(categoryToDelete.Image, container);
+            
             return Ok(categoryToDelete);
         }
     }
