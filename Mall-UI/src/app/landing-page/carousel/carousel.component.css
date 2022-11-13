@@ -7,6 +7,26 @@ p {
     font-size: 1rem;
 }
 
+.carousel-item {
+    position: relative;
+    height: 428px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.carousel-inner .bg__first {
+    background-image: url(../../../assets/images/lap1.png);
+}
+
+.carousel-inner .bg__second {
+    background-image: url(../../../assets/images/pc1.png);
+}
+
+.carousel-inner .bg__third {
+    background-image: url(../../../assets/images/pc2.png);
+}
+
 .carousel-caption {
     width: 84%;
     left: 8%;
@@ -42,19 +62,10 @@ p {
 }
 
 @media (min-width: 1200px) {
-    .carousel-item img {
-        width: 100%;
-        height: auto;
-    }
+    /*  */
 }
 
 @media (max-width: 1200px) {
-    .carousel-item img {
-        width: 1200px;
-        height: 376px;
-        overflow: hidden;
-    }
-    
     .carousel-caption h1 {
         font-size: 3rem;
     }
