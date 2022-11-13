@@ -11,5 +11,10 @@ export class AppComponent {
   title = 'Mall-UI';
 
   constructor () { }
-  
+
+  searchBoxVariable = false
+
+  showSearchBox(){
+    this.searchBoxVariable = !this.searchBoxVariable
+  }
 }

@@ -10,7 +10,7 @@
         <label class="form-label">Department</label>
         <select 
         [ngModel]="productToEditParam.departmentId" class="form-select" formControlName="departmentId" 
-        (change)="setCategory()">
+         (change)="setCategory()">
             <option *ngFor="let department of departmentsSelectListOptions" [value]="department.id">
                 {{department.name}}
             </option>

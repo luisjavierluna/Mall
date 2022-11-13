@@ -23,6 +23,8 @@ import { FormProductsComponent } from './products/form-products/form-products.co
 import { FormCategoriesComponent } from './categories/form-categories/form-categories.component';
 import { FormDepartmentsComponent } from './departments/form-departments/form-departments.component';
 import { InputImgComponent } from './utilities/input-img/input-img.component';
+import { SearchBoxComponent } from './header/search-box/search-box.component';
+import { FormSearchComponent } from './header/search-box/form-search/form-search.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { InputImgComponent } from './utilities/input-img/input-img.component';
     FormCategoriesComponent,
     FormDepartmentsComponent,
     InputImgComponent,
+    SearchBoxComponent,
+    FormSearchComponent
   ],
   imports: [
     BrowserModule,

@@ -62,12 +62,12 @@ app-navbar-menus {
     align-items: center;
 }
 
-.complete__language {
+.login__word {
     font-size: .7rem;
     text-transform: capitalize;
 }
 
-.short__language {
+.login__icon {
     display: none;
 }
 
@@ -83,17 +83,26 @@ app-navbar-menus {
     align-items: center;
 }
 
+.site-header__search a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
 .site-header__search a span {
     font-size: .7rem;
     text-transform: capitalize;
+    height: fit-content;
 }
 
-.site-header__search a span i {
-    margin-left: 5px;
+.site-search-btn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .site-search-btn__label {
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .site-header__menu {
@@ -246,6 +255,42 @@ app-navbar-menus {
     text-transform: capitalize;
 }
 
+.site-header__search--box {
+    display: none;
+}
+
+.show__search--box {
+    display: flex;
+    background-color: white;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    z-index: 1;
+}
+
+app-search-box {
+    width: 100%;
+}
+
+.icon-close {
+    display: none;
+}
+
+.show__icon-close {
+    display: flex;
+    margin: 0;
+}
+
+.show__icon-close > i {
+    margin: 0px;
+}
+
+.hide__icon-search {
+    display: none;
+}
+
 @media (max-width: 992px) {
     .site-header__container {
         padding-left: 1.2rem;
@@ -303,13 +348,10 @@ app-navbar-menus {
         display: none;
     }
 
-    .complete__language {
+    .login__word {
         display: none;
     }
-
-    .short__language {
+    .login__icon {
         display: flex;
-        font-size: .7rem;
-        text-transform: capitalize;
     }
 }

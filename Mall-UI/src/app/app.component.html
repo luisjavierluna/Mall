@@ -4,23 +4,28 @@
             <div class="site-header__row">
                 <div class="column">
                     <div class="site-header__language">
-                        <a class="complete__language" href="#">
-                            Spanish
+                        <a class="login__word" href="#">
+                            Login
                         </a>
-                        <a class="short__language" href="#">
-                            SPA
+                        <a class="login__icon" href="#">
+                            <i class="fa-solid fa-user"></i>
                         </a>
                     </div>
                     <div class="site-header__logo">
-                        <a href="#" title="The Mall">
+                        <a href="index.html" title="The Mall">
                             <span>Infinite</span>
                         </a>
                     </div>
                     <div class="site-header__search">
-                        <a href="#" class="site-search-btn">
+                        <a href="#" class="site-search-btn" (click)="showSearchBox()">
                             <span class="site-search-btn__label">Search</span>
-                            <span class="site-search-btn__icon icon-search"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <span class="site-search-btn__icon icon-search" [class.hide__icon-search]="searchBoxVariable"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <span class="site-search-btn__icon icon-close" [class.show__icon-close]="searchBoxVariable"><i class="fa-solid fa-xmark"></i></span>
                         </a>
+
+                        <div class="site-header__search--box" [class.show__search--box]="searchBoxVariable">
+                            <app-search-box></app-search-box>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -28,9 +33,7 @@
     </div>
 
     <nav class="site-header__menu">
-        
         <app-navbar-menus></app-navbar-menus>
-
     </nav>
     
 </header>
