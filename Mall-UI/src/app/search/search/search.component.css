@@ -1,0 +1,80 @@
+.search {
+    background-color: white;
+    min-height: 20rem;
+    padding-bottom: 5rem;
+}
+
+.search__box--input {
+    display: flex;
+    border-bottom: 1px solid black;
+    align-items: center;
+}
+
+.search__box--input > input {
+    width: 100%;
+    height: 2rem;
+    border: none;
+    padding: 0px;
+    outline: none;
+}
+
+.search__results > ul {
+    padding-left: 1rem;
+}
+
+.search__results > ul > li {
+    text-transform: none;
+    list-style: none;
+    font-weight: 600;
+    line-height: 2;
+}
+
+.card__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.card {
+    background-color: rgb(252, 252, 252);
+    width: 218px;
+    height: fit-content;
+}
+
+.card__image {
+    width: 215px;
+    height: 222px;
+    background-color: rgb(238, 238, 238);
+    border-bottom: 1px solid rgb(219, 219, 219);
+    margin-bottom: 2rem;
+}
+
+.card__image img {
+    width: 100%;
+    height: 100%;
+    font-size: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card__texts {
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 2rem;
+    padding-left: 8px;
+}
+
+.card__texts p {
+    margin-bottom: 0px;
+}
+
+.card__texts--price {
+    color: gray;
+    text-decoration: line-through;
+}
+
+.card__texts--discount {
+    color: red;
+}

@@ -24,7 +24,7 @@ import { FormCategoriesComponent } from './categories/form-categories/form-categ
 import { FormDepartmentsComponent } from './departments/form-departments/form-departments.component';
 import { InputImgComponent } from './utilities/input-img/input-img.component';
 import { SearchBoxComponent } from './header/search-box/search-box.component';
-import { FormSearchComponent } from './header/search-box/form-search/form-search.component';
+import { SearchComponent } from './search/search/search.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import { FormSearchComponent } from './header/search-box/form-search/form-search
     FormDepartmentsComponent,
     InputImgComponent,
     SearchBoxComponent,
-    FormSearchComponent
+    SearchComponent
   ],
   imports: [
     BrowserModule,

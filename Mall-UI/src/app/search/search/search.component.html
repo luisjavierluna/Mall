@@ -1,0 +1,27 @@
+<div class="search">
+    <div class="container">
+        <form class="container search__box--input mb-3" [formGroup]="form" (submit)="saveChamges()">
+            <input type="text" formControlName="name" placeholder="Search Infinite">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        
+            <button hidden>Send</button>
+        </form>
+        
+        <div class="search__results" >
+            <ul class="card__list">
+                <li class="card" *ngFor="let product of products">
+                    <div class="card__image">
+                        <img [src]="product.image" alt="There should be an image here">
+                    </div>
+                    <div class="card__texts">
+                        <p>Department: {{product.departmentName}}</p>
+                        <p>Category: {{product.categoryName}}</p>
+                        <p>{{product.name}}</p>
+                        <p class="card__texts--price">$17,000.00</p>
+                        <p class="card__texts--discount">$14,399.10</p>
+                    </div>
+                </li>
+            </ul>
+        </div>    
+    </div>
+</div>

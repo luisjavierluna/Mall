@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/products/products.service';
-import { debounceTime } from 'rxjs/operators';
-import { pipe } from 'rxjs';
 
 @Component({
-  selector: 'app-form-search',
-  templateUrl: './form-search.component.html',
-  styleUrls: ['./form-search.component.css']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
-export class FormSearchComponent implements OnInit {
+export class SearchComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,7 +21,7 @@ export class FormSearchComponent implements OnInit {
 
   productsOriginal: Product[] = []
 
-  suggestionsSize = 5
+  suggestionsSize = 10
 
   searchLength: string = ''
 
@@ -41,7 +40,7 @@ export class FormSearchComponent implements OnInit {
       next: values => {
         console.log(values)
         this.products = this.productsOriginal
-        this.searchMovies(values)
+        this.searchProducts(values)
       }
     })
   }
@@ -56,17 +55,17 @@ export class FormSearchComponent implements OnInit {
     })
   }
 
-  searchMovies(values: any){
+  searchProducts(values: any){
     if(values.name){
-      this.products = this.products.filter(product => product.name.toUpperCase().includes(values.name.toUpperCase())).slice(0, 10)
-      // this.products = this.products.filter(product => product.name.indexOf(values.name) !== -1).slice(0, 10)
+      this.products = this.products
+      .filter(product => product.name.toUpperCase()
+      .includes(values.name.toUpperCase())).slice(0, this.suggestionsSize)
     }
-
-    this.searchLength = this.form.value.name
   }
 
   saveChamges(){
     console.log(this.form.value.name)
     window.location.reload()
   }
+
 }

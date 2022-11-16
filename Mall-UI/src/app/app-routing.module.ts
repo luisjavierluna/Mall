@@ -10,6 +10,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { CreateProductComponent } from './products/create-product/create-product.component';
 import { EditProductComponent } from './products/edit-product/edit-product.component';
 import { ProductsComponent } from './products/products/products.component';
+import { SearchComponent } from './search/search/search.component';
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'products', component: ProductsComponent},
   {path: 'products/create', component: CreateProductComponent},
   {path: 'products/edit/:id', component: EditProductComponent},
+  {path: 'search', component: SearchComponent},
   {path: '**', redirectTo: ''},
 ]
 
