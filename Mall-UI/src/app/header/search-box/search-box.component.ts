@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { debounceTime } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/products/products.service';
@@ -13,8 +14,12 @@ export class SearchBoxComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private productsService: ProductsService) { }
+    private productsService: ProductsService,
+    private router: Router) { }
 
+  @Output()
+  OnSubmit: EventEmitter<void> = new EventEmitter<void>()
+  
   form: FormGroup = this.formBuilder.group({})
 
   products: Product[] = []
@@ -25,10 +30,10 @@ export class SearchBoxComponent implements OnInit {
 
   searchLength: string = ''
 
+  searchInput: string = ''
+
   ngOnInit(): void {
     this.getAll()
-
-    console.log(this.productsOriginal)
 
     this.form = this.formBuilder.group({
       name: ''
@@ -38,7 +43,6 @@ export class SearchBoxComponent implements OnInit {
     .pipe(debounceTime(300))
     .subscribe({
       next: values => {
-        console.log(values)
         this.products = this.productsOriginal
         this.searchProducts(values)
       }
@@ -65,8 +69,25 @@ export class SearchBoxComponent implements OnInit {
     this.searchLength = this.form.value.name
   }
 
-  saveChamges(){
-    console.log(this.form.value.name)
-    window.location.reload()
+  startSearch(){
+    let searchString: string = this.form.value.name
+
+    if(searchString !== ''){
+      this.router.navigate(['/search'],{queryParams:{name:searchString}})
+      this.OnSubmit.emit()
+    }
+  }
+
+  startAdvancedSearch(){
+    this.OnSubmit.emit()
+  }
+
+  searchSuggestion(productName: string) {
+    console.log(productName)
+    this.searchInput = productName
+
+    setTimeout(() => {
+      this.startSearch()
+    }, 300);
   }
 }

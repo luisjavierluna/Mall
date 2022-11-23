@@ -3,6 +3,7 @@ using Mall_API.DTOs;
 using Mall_API.Entities;
 using Mall_API.Utilities;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -40,6 +41,26 @@ namespace Mall_API.Controller
                 DepartmentName = c.Department.Name
 
             }).ToListAsync();
+
+            return Ok(categories);
+        }
+
+        [HttpGet("filteredCategories/{departmentId:int}")]
+        public async Task<IActionResult> GetFilteredCategories(int departmentId)
+        {
+            var categories = await _context.Categories
+                .Where(c => c.DepartmentId == departmentId)
+                .Select(c => 
+                new
+                {
+                    c.Id,
+                    c.Name,
+                    c.Image,
+                    DepartmentId = c.Department.Id,
+                    DepartmentName = c.Department.Name
+                })
+                
+                .ToListAsync();
 
             return Ok(categories);
         }

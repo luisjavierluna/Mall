@@ -26,3 +26,27 @@
     font-weight: 600;
     line-height: 2;
 }
+
+.advaced-search {
+    display: flex;
+    position: absolute;
+    bottom: 16px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.advaced-search a {
+    border-radius: 0%;
+    text-transform: none;
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.advaced-search a:hover {
+    background-color: rgb(247, 247, 247);
+    transition: all 0.2s ease-in-out;
+}

@@ -24,7 +24,7 @@
                         </a>
 
                         <div class="site-header__search--box" [class.show__search--box]="searchBoxVariable">
-                            <app-search-box></app-search-box>
+                            <app-search-box (OnSubmit)="showSearchBox()"></app-search-box>
                         </div>
                     </div>
                 </div>

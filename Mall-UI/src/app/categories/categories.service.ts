@@ -17,6 +17,10 @@ export class CategoriesService {
     return this.http.get<Category[]>(this.apiURL)
   }
 
+  public getFilteredCategories(departmentId: number):Observable<Category[]>{
+    return this.http.get<Category[]>(`${this.apiURL}/filteredCategories/${departmentId}`)
+  }
+
   public add(category: CategoryCreationDTO){
     const formData = this.buildFormData(category)
     return this.http.post(this.apiURL, formData)

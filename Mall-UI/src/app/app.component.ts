@@ -17,4 +17,7 @@ export class AppComponent {
   showSearchBox(){
     this.searchBoxVariable = !this.searchBoxVariable
   }
+
+
+  
 }
