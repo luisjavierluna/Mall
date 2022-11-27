@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Mall_API.DTOs;
 using Mall_API.Entities;
 using Mall_API.Utilities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
 
 namespace Mall_API.Controller
 {
@@ -30,18 +32,9 @@ namespace Mall_API.Controller
         [HttpGet]
         public async Task<IActionResult> GetProducts()
         {
-            var products = await _context.Products.Select(p =>
-            new
-            {
-                p.Id,
-                p.Name,
-                p.Image,
-                CategoryId = p.Category.Id,
-                CategoryName = p.Category.Name,
-                DepartmentId = p.Department.Id,
-                DepartmentName = p.Department.Name
-
-            }).ToListAsync();
+            var products = await _context.Products
+                .ProjectTo<ProductDTO>(mapper.ConfigurationProvider)
+                .ToListAsync();
 
             return Ok(products);
         }

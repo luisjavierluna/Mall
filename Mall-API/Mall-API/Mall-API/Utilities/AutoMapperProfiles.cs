@@ -10,8 +10,11 @@ namespace Mall_API.Utilities
         {
             CreateMap<ProductCreationDTO, Product>()
                 .ForMember(x => x.Image, options => options.Ignore());
+            
             CreateMap<CategoryCreationDTO, Category>()
                 .ForMember(x => x.Image, options => options.Ignore());
+
+            CreateMap<Product, ProductDTO>();
         }
     }
 }
