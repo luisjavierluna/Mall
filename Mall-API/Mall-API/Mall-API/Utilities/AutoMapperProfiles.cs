@@ -15,6 +15,7 @@ namespace Mall_API.Utilities
                 .ForMember(x => x.Image, options => options.Ignore());
 
             CreateMap<Product, ProductDTO>();
+            CreateMap<Category, CategoryDTO>();
         }
     }
 }

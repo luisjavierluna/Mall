@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Mall_API.DTOs;
 using Mall_API.Entities;
 using Mall_API.Utilities;
@@ -31,16 +32,9 @@ namespace Mall_API.Controller
         [HttpGet]
         public async Task<IActionResult> GetCategories()
         {
-            var categories = await _context.Categories.Select(c =>
-            new
-            {
-                c.Id,
-                c.Name,
-                c.Image,
-                DepartmentId = c.Department.Id,
-                DepartmentName = c.Department.Name
-
-            }).ToListAsync();
+            var categories = await _context.Categories
+                .ProjectTo<CategoryDTO>(mapper.ConfigurationProvider)
+                .ToListAsync();
 
             return Ok(categories);
         }
@@ -50,18 +44,9 @@ namespace Mall_API.Controller
         {
             var categories = await _context.Categories
                 .Where(c => c.DepartmentId == departmentId)
-                .Select(c => 
-                new
-                {
-                    c.Id,
-                    c.Name,
-                    c.Image,
-                    DepartmentId = c.Department.Id,
-                    DepartmentName = c.Department.Name
-                })
-                
+                .ProjectTo<CategoryDTO>(mapper.ConfigurationProvider)
                 .ToListAsync();
-
+                
             return Ok(categories);
         }
 
