@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mall_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221109195608_categoryImageProperty")]
-    partial class categoryImageProperty
+    [Migration("20221204163719_AddedTestDatabase")]
+    partial class AddedTestDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
