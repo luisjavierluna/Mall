@@ -26,6 +26,7 @@ import { InputImgComponent } from './utilities/input-img/input-img.component';
 import { SearchBoxComponent } from './header/search-box/search-box.component';
 import { SearchComponent } from './search/search/search.component';
 import { AuthorizedComponent } from './security/authorized/authorized.component';
+import { LoginComponent } from './security/login/login.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AuthorizedComponent } from './security/authorized/authorized.component'
     InputImgComponent,
     SearchBoxComponent,
     SearchComponent,
-    AuthorizedComponent
+    AuthorizedComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

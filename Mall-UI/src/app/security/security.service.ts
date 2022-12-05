@@ -8,7 +8,7 @@ export class SecurityService {
   constructor() { }
 
   isLoggedIn(): boolean {
-    return false
+    return true
   }
 
   getRole(): string {
