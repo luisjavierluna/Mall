@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { userCredentials } from '../security';
+import { SecurityService } from '../security.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.css']
 })
-export class LoginComponent implements OnInit {
+export class SignInComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private securityService: SecurityService) { }
 
   form: FormGroup = this.formBuilder.group({})
 
@@ -42,7 +46,17 @@ export class LoginComponent implements OnInit {
     return ''
   }
 
-  login() {
+  signIn() {
+    let credentials: userCredentials = {
+      email: this.form.value.email,
+      password: this.form.value.password
+    }
 
+
+    this.securityService.signIn(credentials)
+    .subscribe({
+      next: response => {console.log(response)},
+      error: error => {console.log(error)}
+    })
   }
 }

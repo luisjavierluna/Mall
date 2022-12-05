@@ -27,6 +27,7 @@ import { SearchBoxComponent } from './header/search-box/search-box.component';
 import { SearchComponent } from './search/search/search.component';
 import { AuthorizedComponent } from './security/authorized/authorized.component';
 import { LoginComponent } from './security/login/login.component';
+import { SignInComponent } from './security/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { LoginComponent } from './security/login/login.component';
     SearchBoxComponent,
     SearchComponent,
     AuthorizedComponent,
-    LoginComponent
+    LoginComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

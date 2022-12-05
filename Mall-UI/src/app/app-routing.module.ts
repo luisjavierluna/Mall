@@ -13,6 +13,7 @@ import { EditProductComponent } from './products/edit-product/edit-product.compo
 import { ProductsComponent } from './products/products/products.component';
 import { SearchComponent } from './search/search/search.component';
 import { LoginComponent } from './security/login/login.component';
+import { SignInComponent } from './security/sign-in/sign-in.component';
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'products', component: ProductsComponent, canActivate: [IsAdminGuard]},
   {path: 'products/create', component: CreateProductComponent, canActivate: [IsAdminGuard]},
   {path: 'products/edit/:id', component: EditProductComponent, canActivate: [IsAdminGuard]},
+  {path: 'sign-in', component: SignInComponent},
   {path: 'login', component: LoginComponent},
   {path: 'search', component: SearchComponent},
   {path: '**', redirectTo: ''},

@@ -31,7 +31,7 @@ namespace Mall_API.Controller
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] UserCredentials credentials)
         {
-            var user = new IdentityUser { UserName = credentials.Email, Email = credentials.Password };
+            var user = new IdentityUser { UserName = credentials.Email, Email = credentials.Email };
             var result = await userManager.CreateAsync(user, credentials.Password);
 
             if (result.Succeeded)
