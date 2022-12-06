@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { userCredentials } from '../security';
+import { SecurityService } from '../security.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private securityService: SecurityService,
+    private router: Router) { }
 
   form: FormGroup = this.formBuilder.group({})
 
@@ -43,6 +49,18 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    let credentials: userCredentials = {
+      email: this.form.value.email,
+      password: this.form.value.password
+    }
 
+    this.securityService.login(credentials)
+    .subscribe({
+      next: response => {
+        this.securityService.saveToken(response)
+        this.router.navigate(['/'])
+      },
+      error: error => {console.log(error)}
+    })
   }
 }
