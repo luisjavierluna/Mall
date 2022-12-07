@@ -48,7 +48,7 @@ export class SecurityService {
   }
 
   getRole(): string {
-    return 'admin'
+    return ''
   }
 
   signIn(credentials: userCredentials): Observable<authenticationResponse> {
@@ -62,5 +62,9 @@ export class SecurityService {
   saveToken(authenticationResponse: authenticationResponse){
     localStorage.setItem(this.tokenKey, authenticationResponse.token)
     localStorage.setItem(this.expirationKey, authenticationResponse.expiration.toString())
+  }
+
+  getToken() {
+    return localStorage.getItem(this.tokenKey)
   }
 }

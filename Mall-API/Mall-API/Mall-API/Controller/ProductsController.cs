@@ -3,6 +3,8 @@ using AutoMapper.QueryableExtensions;
 using Mall_API.DTOs;
 using Mall_API.Entities;
 using Mall_API.Utilities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -40,6 +42,7 @@ namespace Mall_API.Controller
         }
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> PostProduct([FromForm] ProductCreationDTO productCreationDTO)
         {
             var product = mapper.Map<Product>(productCreationDTO);
