@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product, ProductCreationDTO } from 'src/app/models/product';
+import { SecurityService } from 'src/app/security/security.service';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class EditProductComponent implements OnInit {
   constructor(
     private productsService: ProductsService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) { }
+    private router: Router, 
+    private securityService: SecurityService) { }
 
   productToEdit: Product = {id: 0, name: '', image: '', categoryId: 0, categoryName: '', departmentId: 0, departmentName: ''}
 
@@ -28,10 +30,14 @@ export class EditProductComponent implements OnInit {
   }
 
   saveChanges(product: ProductCreationDTO){
-    this.productsService.edit(this.productToEdit.id, product)
-    .subscribe({
-      next: () => {this.router.navigate(['/products'])}
-    })
+    if(this.securityService.isLoggedIn()) {
+      this.productsService.edit(this.productToEdit.id, product)
+      .subscribe({
+        next: () => {this.router.navigate(['/products'])}
+      })
+    } else {
+      this.router.navigate(["/login"])
+    }
   }
 
 }

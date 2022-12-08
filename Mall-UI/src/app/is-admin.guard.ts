@@ -16,8 +16,18 @@ export class IsAdminGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      if(this.securityService.getRole() === 'admin') {
+      if(this.securityService.isLoggedIn() === true && this.securityService.getRole() === 'admin') {
         return true
+
+      } else if (this.securityService.isLoggedIn() === true && this.securityService.getRole() !== 'admin') {
+        return this.router.navigate(['/unauthorized'])
+
+      } else if (this.securityService.isLoggedIn() !== true && this.securityService.getRole() === 'admin') {
+        return this.router.navigate(['/login'])
+
+      } else if (this.securityService.isLoggedIn() !== true && this.securityService.getRole() !== 'admin') {
+        return this.router.navigate(['/login'])
+
       }
 
       this.router.navigate(['/login'])
