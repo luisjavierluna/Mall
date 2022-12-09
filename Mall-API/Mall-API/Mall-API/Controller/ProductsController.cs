@@ -14,7 +14,7 @@ namespace Mall_API.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "IsAdmin")]
     public class ProductsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;

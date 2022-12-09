@@ -32,7 +32,7 @@ export class IsAdminGuard implements CanActivate {
 
       this.router.navigate(['/login'])
 
-    return false;
+    return false
   }
   
 }

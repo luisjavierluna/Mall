@@ -14,6 +14,7 @@ export class SecurityService {
   private apiURL = environment.apiURL + 'accounts'
   private readonly tokenKey = 'token'
   private readonly expirationKey = 'token-expiration'
+  private readonly fieldRole = 'role'
 
   isLoggedIn(): boolean {
     const token = localStorage.getItem(this.tokenKey)
@@ -36,6 +37,7 @@ export class SecurityService {
   logout(){
     localStorage.removeItem(this.tokenKey)
     localStorage.removeItem(this.expirationKey)
+    window.location.reload()
   }
 
   getFieldJWT(field: string): string {
@@ -48,7 +50,7 @@ export class SecurityService {
   }
 
   getRole(): string {
-    return ''
+    return this.getFieldJWT(this.fieldRole)
   }
 
   signIn(credentials: userCredentials): Observable<authenticationResponse> {
