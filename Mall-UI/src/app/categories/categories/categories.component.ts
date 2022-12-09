@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/models/category';
+import { SecurityService } from 'src/app/security/security.service';
 import { CategoriesService } from '../categories.service';
 
 @Component({
@@ -9,12 +11,19 @@ import { CategoriesService } from '../categories.service';
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor(private categoriesService: CategoriesService) { }
+  constructor(
+    private categoriesService: CategoriesService,
+    private securityService: SecurityService,
+    private router: Router) { }
 
   categories: Category[] = []
 
   ngOnInit(): void {
-    this.getAll()
+    if(this.securityService.isLoggedIn()) {
+      this.getAll()
+    }else{
+      this.router.navigate(['/login'])
+    }
   }
 
   getAll(){
@@ -26,10 +35,14 @@ export class CategoriesComponent implements OnInit {
   }
 
   delete(id: number){
-    this.categoriesService.delete(id)
-    .subscribe({
-      next: () => {this.reloadCurrentPage()}
-    })
+    if(this.securityService.isLoggedIn()) {
+      this.categoriesService.delete(id)
+      .subscribe({
+        next: () => {this.reloadCurrentPage()}
+      })
+    }else{
+      this.router.navigate(['/login'])
+    }
   }
 
   reloadCurrentPage(){

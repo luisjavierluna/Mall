@@ -3,6 +3,8 @@ using AutoMapper.QueryableExtensions;
 using Mall_API.DTOs;
 using Mall_API.Entities;
 using Mall_API.Utilities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +14,7 @@ namespace Mall_API.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "IsAdmin")]
     public class CategoriesController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -30,6 +33,7 @@ namespace Mall_API.Controller
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetCategories()
         {
             var categories = await _context.Categories
@@ -40,6 +44,7 @@ namespace Mall_API.Controller
         }
 
         [HttpGet("filteredCategories/{departmentId:int}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetFilteredCategories(int departmentId)
         {
             var categories = await _context.Categories
