@@ -8,6 +8,7 @@ import { DepartmentsComponent } from './departments/departments/departments.comp
 import { EditDepartmentComponent } from './departments/edit-department/edit-department.component';
 import { IsAdminGuard } from './is-admin.guard';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { ManagementDashboardComponent } from './management-dashboard/management-dashboard.component';
 import { CreateProductComponent } from './products/create-product/create-product.component';
 import { EditProductComponent } from './products/edit-product/edit-product.component';
 import { ProductsComponent } from './products/products/products.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'products', component: ProductsComponent, canActivate: [IsAdminGuard]},
   {path: 'products/create', component: CreateProductComponent, canActivate: [IsAdminGuard]},
   {path: 'products/edit/:id', component: EditProductComponent, canActivate: [IsAdminGuard]},
+  {path: 'management-dashboard', component: ManagementDashboardComponent, canActivate: [IsAdminGuard]},
   {path: 'sign-in', component: SignInComponent},
   {path: 'login', component: LoginComponent},
   {path: 'search', component: SearchComponent},

@@ -30,6 +30,7 @@ import { LoginComponent } from './security/login/login.component';
 import { SignInComponent } from './security/sign-in/sign-in.component';
 import { SecurityInterceptorService } from './security/security-interceptor.service';
 import { UnauthorizedComponent } from './security/unauthorized/unauthorized.component';
+import { ManagementDashboardComponent } from './management-dashboard/management-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { UnauthorizedComponent } from './security/unauthorized/unauthorized.comp
     AuthorizedComponent,
     LoginComponent,
     SignInComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    ManagementDashboardComponent
   ],
   imports: [
     BrowserModule,
