@@ -1,9 +1,10 @@
 ﻿using Mall_API.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mall_API
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
         public DbSet<Department> Departments { get; set; }
         public DbSet<Category> Categories { get; set; }
