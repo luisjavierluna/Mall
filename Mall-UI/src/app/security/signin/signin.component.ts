@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { userCredentials } from '../security';
 import { SecurityService } from '../security.service';
 
@@ -12,7 +13,8 @@ export class SigninComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private securityService: SecurityService) { }
+    private securityService: SecurityService,
+    private router: Router) { }
 
   form: FormGroup = this.formBuilder.group({})
 
@@ -52,10 +54,12 @@ export class SigninComponent implements OnInit {
       password: this.form.value.password
     }
 
-
     this.securityService.signIn(credentials)
     .subscribe({
-      next: response => {console.log(response)},
+      next: response => {
+        this.securityService.saveToken(response)
+        this.router.navigate(['/'])
+      },
       error: error => {console.log(error)}
     })
   }

@@ -68,9 +68,16 @@ app-navbar-menus {
     align-items: center;
 }
 
-.login__word {
+.login__data {
     font-size: .7rem;
     text-transform: capitalize;
+    cursor: pointer;
+}
+
+.login__data-email {
+    border: 1px solid black;
+    padding: 0px 8px;
+    text-transform: none;
 }
 
 .login__icon {
@@ -355,7 +362,7 @@ app-search-box {
         display: none;
     }
 
-    .login__word {
+    .login__data {
         display: none;
     }
     .login__icon {

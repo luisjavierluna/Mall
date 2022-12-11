@@ -8,17 +8,17 @@
                         <app-authorized>
                             <ng-container authorized >
                                 <div class="logged-in">
-                                    <a class="login__word" routerLink="/login">
-                                        luis@hotmail.com
+                                    <a class="login__data login__data-email">
+                                        {{securityService.getFieldJWT('email')}}
                                     </a>
-                                    <a class="login__word" routerLink="/login">
+                                    <a class="login__data" (click)="securityService.logout()">
                                         Logout
                                     </a>
                                 </div>
                             </ng-container>
 
                             <ng-container unAuthorized>
-                                <a class="login__word" routerLink="/login">
+                                <a class="login__data" routerLink="/login">
                                     Login
                                 </a>
                                 <a class="login__icon" routerLink="/login">

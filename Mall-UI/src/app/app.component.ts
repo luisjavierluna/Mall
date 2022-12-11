@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavbarMenusComponent } from './header/navbar-menus/navbar-menus.component';
+import { SecurityService } from './security/security.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { NavbarMenusComponent } from './header/navbar-menus/navbar-menus.compone
 export class AppComponent {
   title = 'Mall-UI';
 
-  constructor () { }
+  constructor (public securityService: SecurityService) { }
 
   searchBoxVariable = false
 
