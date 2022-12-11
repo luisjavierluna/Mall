@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
@@ -28,6 +28,7 @@ import { SearchComponent } from './search/search/search.component';
 import { AuthorizedComponent } from './security/authorized/authorized.component';
 import { LoginComponent } from './security/login/login.component';
 import { SigninComponent } from './security/signin/signin.component';
+import { SecurityInterceptorService } from './security/security-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,11 @@ import { SigninComponent } from './security/signin/signin.component';
     ReactiveFormsModule,
     SweetAlert2Module.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: SecurityInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
