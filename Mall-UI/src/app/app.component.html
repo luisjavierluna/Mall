@@ -3,14 +3,31 @@
         <div class="site-header__container">
             <div class="site-header__row">
                 <div class="column">
-                    <div class="site-header__language">
-                        <a class="login__word" href="#">
-                            Login
-                        </a>
-                        <a class="login__icon" href="#">
-                            <i class="fa-solid fa-user"></i>
-                        </a>
+                    
+                    <div class="site-header__login">
+                        <app-authorized>
+                            <ng-container authorized >
+                                <div class="logged-in">
+                                    <a class="login__word" routerLink="/login">
+                                        luis@hotmail.com
+                                    </a>
+                                    <a class="login__word" routerLink="/login">
+                                        Logout
+                                    </a>
+                                </div>
+                            </ng-container>
+
+                            <ng-container unAuthorized>
+                                <a class="login__word" routerLink="/login">
+                                    Login
+                                </a>
+                                <a class="login__icon" routerLink="/login">
+                                    <i class="fa-solid fa-user"></i>
+                                </a>
+                            </ng-container>
+                        </app-authorized>
                     </div>
+
                     <div class="site-header__logo">
                         <a href="index.html" title="The Mall">
                             <span>Infinite</span>
