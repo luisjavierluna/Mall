@@ -3,11 +3,23 @@
         <div class="site-sections">
             
             <nav class="site-sections__menu">
+                <div class="site-sections__side">
+                    <app-authorized [role]="'admin'">
+                        <ng-container authorized>
+                            <button class="btn btn-outline-light" routerLink="/products">Manage</button>
+                        </ng-container>
+                    </app-authorized>
+                </div>
+
                 <ul>
                     <li><a href="#">Offers</a></li>
                     <li><a href="#">Events</a></li>
                     <li><a href="#">Memberships</a></li>
                 </ul>
+
+                <div class="site-sections__side">
+
+                </div>
             </nav>
             
             <div class="site-sections__block" >

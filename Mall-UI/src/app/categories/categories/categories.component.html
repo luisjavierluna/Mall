@@ -1,9 +1,11 @@
 <div class="container">
-    <h3 class="mb-4">Categories</h3>
+  <app-authorized [role]="'admin'">
+    <ng-container authorized>
+      <h3 class="mb-4">Categories</h3>
 
-    <a class="btn btn-primary" routerLink="/categories/create">Create Category</a>
-  
-    <table class="table table-hover">
+      <a class="btn btn-primary" routerLink="/categories/create">Create Category</a>
+
+      <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -14,7 +16,7 @@
           </tr>
         </thead>
         <tbody>
-    
+
           <tr *ngFor="let category of categories; let i = index">
             <td scope="row">{{i + 1}}</td>
             <td>{{category.name}}</td>
@@ -23,19 +25,20 @@
             <td>
               <div class="actions">
                 <a class="btn btn-primary" routerLink="/categories/edit/{{category.id}}">Edit</a>
-                <a class="btn btn-danger"
-                [swal]="{title: 'Please confirm', 
-                text: 'Are you sure you want to delete this Category?', showCancelButton: true}"
-                (confirm)="delete(category.id)"
-                >Delete</a>
+                <a class="btn btn-danger" [swal]="{title: 'Please confirm', 
+                  text: 'Are you sure you want to delete this Category?', showCancelButton: true}"
+                  (confirm)="delete(category.id)">Delete</a>
               </div>
             </td>
           </tr>
-    
+
         </tbody>
       </table>
 
       <div class="loading">
         <div class="spinner-grow" role="status" *ngIf="categories.length <= 0"></div>
       </div>
-  </div>
+    </ng-container>
+  </app-authorized>
+
+</div>

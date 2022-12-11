@@ -25,6 +25,7 @@ import { FormDepartmentsComponent } from './departments/form-departments/form-de
 import { InputImgComponent } from './utilities/input-img/input-img.component';
 import { SearchBoxComponent } from './header/search-box/search-box.component';
 import { SearchComponent } from './search/search/search.component';
+import { AuthorizedComponent } from './security/authorized/authorized.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SearchComponent } from './search/search/search.component';
     FormDepartmentsComponent,
     InputImgComponent,
     SearchBoxComponent,
-    SearchComponent
+    SearchComponent,
+    AuthorizedComponent
   ],
   imports: [
     BrowserModule,
