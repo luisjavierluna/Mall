@@ -1,4 +1,6 @@
 ﻿using Mall_API.Entities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +9,7 @@ namespace Mall_API.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "IsAdmin")]
     public class DepartmentsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -17,6 +20,7 @@ namespace Mall_API.Controller
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetDepartments()
         {
             var departments = await _context.Departments.Select(p =>
@@ -30,6 +34,7 @@ namespace Mall_API.Controller
         }
 
         [HttpGet("navbarMenuItems")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAllMenuItems()
         {
             var departments = await _context.Departments
