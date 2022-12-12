@@ -20,13 +20,17 @@ export class EditProductComponent implements OnInit {
   productToEdit: Product = {id: 0, name: '', image: '', categoryId: 0, categoryName: '', departmentId: 0, departmentName: ''}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      this.productsService.getById(params['id'])
-      .subscribe({
-        next: product => {this.productToEdit = product},
-        error: error => {console.log(error)}
+    if (this.securityService.isLoggedIn()) {
+      this.activatedRoute.params.subscribe(params => {
+        this.productsService.getById(params['id'])
+          .subscribe({
+            next: product => { this.productToEdit = product },
+            error: error => { console.log(error) }
+          })
       })
-    })
+    } else {
+      this.router.navigate(["/login"])
+    }
   }
 
   saveChanges(product: ProductCreationDTO){
