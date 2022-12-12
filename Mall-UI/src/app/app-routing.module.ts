@@ -14,6 +14,7 @@ import { ProductsComponent } from './products/products/products.component';
 import { SearchComponent } from './search/search/search.component';
 import { LoginComponent } from './security/login/login.component';
 import { SigninComponent } from './security/signin/signin.component';
+import { UnauthorizedComponent } from './security/unauthorized/unauthorized.component';
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'signin', component: SigninComponent},
   {path: 'login', component: LoginComponent},
   {path: 'search', component: SearchComponent},
+  {path: 'unauthorized', component: UnauthorizedComponent},
   {path: '**', redirectTo: ''},
 ]
 

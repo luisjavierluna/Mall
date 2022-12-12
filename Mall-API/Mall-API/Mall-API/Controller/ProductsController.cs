@@ -14,6 +14,7 @@ namespace Mall_API.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "IsAdmin")]
     public class ProductsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -32,6 +33,7 @@ namespace Mall_API.Controller
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetProducts()
         {
             var products = await _context.Products
@@ -42,7 +44,6 @@ namespace Mall_API.Controller
         }
 
         [HttpPost]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> PostProduct([FromForm] ProductCreationDTO productCreationDTO)
         {
             var product = mapper.Map<Product>(productCreationDTO);

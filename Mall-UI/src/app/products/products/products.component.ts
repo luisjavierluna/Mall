@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
+import { SecurityService } from 'src/app/security/security.service';
 import { ProductsService } from '../products.service';
 
 
@@ -10,12 +12,19 @@ import { ProductsService } from '../products.service';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private productsService: ProductsService) { }
+  constructor(
+    private productsService: ProductsService,
+    private securityService: SecurityService,
+    private router: Router) { }
 
   products: Product[] = []
 
   ngOnInit(): void {
-    this.getAll()
+    if(this.securityService.isLoggedIn()) {
+      this.getAll()
+    } else {
+      this.router.navigate(['/login'])
+    }
   }
 
   getAll(){
@@ -27,10 +36,14 @@ export class ProductsComponent implements OnInit {
   }
 
   delete(id: number){
-    this.productsService.delete(id)
-    .subscribe({
-      next: () => {this.reloadCurrentPage()}
-    })
+    if(this.securityService.isLoggedIn()) {
+      this.productsService.delete(id)
+      .subscribe({
+        next: () => {this.reloadCurrentPage()}
+      })
+    } else {
+      this.router.navigate(['/login'])
+    }
   }
 
   reloadCurrentPage(){
