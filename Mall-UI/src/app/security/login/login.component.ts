@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { parseAPIErrors } from 'src/app/utilities/utilities';
 import { userCredentials } from '../security';
 import { SecurityService } from '../security.service';
 
@@ -15,6 +16,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private securityService: SecurityService,
     private router: Router) { }
+
+  errors: string[] = []
 
   form: FormGroup = this.formBuilder.group({})
 
@@ -60,7 +63,7 @@ export class LoginComponent implements OnInit {
         this.securityService.saveToken(response)
         this.router.navigate(['/'])
       },
-      error: error => {console.log(error)}
+      error: errors => this.errors = parseAPIErrors(errors)
     })
   }
 }

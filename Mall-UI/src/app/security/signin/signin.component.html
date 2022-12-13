@@ -3,6 +3,8 @@
         <div class="card-body">
             <h3 class="card-title text-center">Sign In</h3>
 
+            <app-show-errors [errors]="errors"></app-show-errors>
+
             <form [formGroup]="form" (submit)="signIn()">
                 <div class="form-group">
                     <div class="form-email">

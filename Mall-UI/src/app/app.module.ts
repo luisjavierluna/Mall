@@ -31,6 +31,7 @@ import { SigninComponent } from './security/signin/signin.component';
 import { SecurityInterceptorService } from './security/security-interceptor.service';
 import { UnauthorizedComponent } from './security/unauthorized/unauthorized.component';
 import { ManagementDashboardComponent } from './management-dashboard/management-dashboard.component';
+import { ShowErrorsComponent } from './utilities/show-errors/show-errors.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ManagementDashboardComponent } from './management-dashboard/management-
     LoginComponent,
     SigninComponent,
     UnauthorizedComponent,
-    ManagementDashboardComponent
+    ManagementDashboardComponent,
+    ShowErrorsComponent
   ],
   imports: [
     BrowserModule,
