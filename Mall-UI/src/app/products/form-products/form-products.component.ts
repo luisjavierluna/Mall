@@ -92,11 +92,6 @@ export class FormProductsComponent implements OnInit {
     }, 500)
   }
 
-
-
-
-
-
   getNameErrorMessage(){
     var fieldName = this.form.get('name')
     if(fieldName?.hasError('required') && fieldName?.touched) {

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/models/category';
 import { Department } from 'src/app/models/department';
 
@@ -15,6 +15,9 @@ export class FormDepartmentsComponent implements OnInit {
   @Input()
   departmentToEditParam: Department = {id: 0, name: ''}
 
+  @Input()
+  errors: string[] = []
+
   @Output()
   onSubmit: EventEmitter<Category> = new EventEmitter<Category>()
 
@@ -22,11 +25,20 @@ export class FormDepartmentsComponent implements OnInit {
   
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      name: '',
+      name: ['', {validators: [Validators.required]}],
     })
   }
 
   saveChanges(){
     this.onSubmit.emit(this.form.value)
+  }
+
+  getNameErrorMessage(){
+    var fieldName = this.form.get('name')
+    if(fieldName?.hasError('required') && fieldName?.touched) {
+      return ' Field Name is required'
+    }
+
+    return ''
   }
 }
