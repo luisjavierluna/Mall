@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Category, CategoryCreationDTO } from 'src/app/models/category';
 import { Product } from 'src/app/models/product';
 import { SecurityService } from 'src/app/security/security.service';
+import { parseAPIErrors } from 'src/app/utilities/utilities';
 import { CategoriesService } from '../categories.service';
 
 @Component({
@@ -19,6 +20,8 @@ export class EditCategoryComponent implements OnInit {
     private securityService: SecurityService) { }
 
   categoryToEdit: Category = {id: 0, name: '', image: '', departmentId: 0, departmentName: ''}
+  
+  errors: string[] = []
 
   ngOnInit(): void {
     if (this.securityService.isLoggedIn()) {
@@ -38,7 +41,8 @@ export class EditCategoryComponent implements OnInit {
     if(this.securityService.isLoggedIn()){
       this.categoriesService.edit(this.categoryToEdit.id, category)
       .subscribe({
-        next: () => {this.router.navigate(['/categories'])}
+        next: () => {this.router.navigate(['/categories'])},
+        error: errors => this.errors = parseAPIErrors(errors)
       })
     } else {
       this.router.navigate(["/login"])

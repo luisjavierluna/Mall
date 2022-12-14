@@ -2,5 +2,6 @@
     <h3 class="mb-4">Create Category</h3>
 
     <app-form-categories
+    [errors]="errors"
     (OnSubmit)="saveChanges($event)"></app-form-categories>
 </div>
