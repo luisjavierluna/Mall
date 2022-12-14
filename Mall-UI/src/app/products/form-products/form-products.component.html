@@ -1,7 +1,11 @@
+<app-show-errors [errors]="errors"></app-show-errors>
+
 <form [formGroup]="form" (submit)="saveChanges()">
     <div class="form-group mb-3">
         <label class="form-label">Name</label>
-        <input class="form-control" [ngModel]="productToEditParam.name" type="text" formControlName="name" placeholder="Write the product name here...">
+        <input class="form-control" [ngModel]="productToEditParam.name" 
+        type="text" formControlName="name" placeholder="Write the product name here...">
+        <span>{{getNameErrorMessage()}}</span>
     </div>
 
     <app-input-img [urlCurrentImage]="productToEditParam.image" (selectedFile)="selectedFile($event)"></app-input-img>
@@ -15,6 +19,7 @@
                 {{department.name}}
             </option>
         </select>
+        <span>{{getDepartmentErrorMessage()}}</span>
     </div>
 
     <div class="form-group mb-3">
@@ -24,8 +29,9 @@
                 {{category.name}}
             </option>
         </select>
+        <span>{{getCategoryErrorMessage()}}</span>
     </div>
 
-    <button class="btn btn-primary">Send</button>
+    <button class="btn btn-primary" [disabled]="form.invalid">Send</button>
     <a class="btn btn-secondary" routerLink="/products">Return</a>
 </form>

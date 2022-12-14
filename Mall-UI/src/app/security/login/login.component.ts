@@ -31,11 +31,11 @@ export class LoginComponent implements OnInit {
   getEmailErrorMessage(){
     var field = this.form.get('email')
     if(field?.hasError('required') && field?.touched) {
-      return '- Field Email is required'
+      return ' Field Email is required'
     }
 
     if(field?.hasError('email') && field?.touched) {
-      return '- Field Email is not valid'
+      return ' Field Email is not valid'
     }
 
     return ''

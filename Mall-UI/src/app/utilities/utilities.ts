@@ -21,9 +21,8 @@ export function parseAPIErrors(response: any): string[] {
             const errorsMap = response.error.errors
             const entries = Object.entries(errorsMap)
             entries.forEach((arrayVariable: any[]) => {
-                const field = arrayVariable[0]
                 arrayVariable[1].forEach((errorMessage: any) => {
-                    result.push(`${field}: ${errorMessage}`)
+                    result.push(`${errorMessage}`)
                 })
             })
         }

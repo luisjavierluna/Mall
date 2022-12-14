@@ -3,6 +3,7 @@
 
     <app-form-products
     *ngIf="productToEdit"
+    [errors]="errors"
     [productToEditParam]="productToEdit"
     (OnSubmit)="saveChanges($event)"></app-form-products>
 </div>

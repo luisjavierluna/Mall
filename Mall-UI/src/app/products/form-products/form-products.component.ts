@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoriesService } from 'src/app/categories/categories.service';
 import { DepartmentsService } from 'src/app/departments/departments.service';
 import { Category } from 'src/app/models/category';
@@ -20,6 +20,9 @@ export class FormProductsComponent implements OnInit {
 
   @Input()
   productToEditParam: Product = {id: 0, name: '', image: '', categoryId: 0, categoryName: '', departmentId: 0, departmentName: ''}
+
+  @Input()
+  errors: string[] = []
   
   @Output()
   OnSubmit: EventEmitter<ProductCreationDTO> = new EventEmitter<ProductCreationDTO>()
@@ -36,9 +39,9 @@ export class FormProductsComponent implements OnInit {
     this.getAllDepartments()
 
     this.form = this.formBuilder.group({
-      name: '',
-      categoryId: '',
-      departmentId: '',
+      name: ['', {validators: [Validators.required]}],
+      categoryId: ['', {validators: [Validators.required, Validators.min(1)]}],
+      departmentId: ['', {validators: [Validators.required, Validators.min(1)]}],
       image: ''
     })
   }
@@ -87,5 +90,45 @@ export class FormProductsComponent implements OnInit {
         }
       })
     }, 500)
+  }
+
+
+
+
+
+
+  getNameErrorMessage(){
+    var fieldName = this.form.get('name')
+    if(fieldName?.hasError('required') && fieldName?.touched) {
+      return ' Field Name is required'
+    }
+
+    return ''
+  }
+
+  getDepartmentErrorMessage(){
+    var fieldDepartmentId = this.form.get('departmentId')
+    if(fieldDepartmentId?.hasError('required') && fieldDepartmentId?.touched) {
+      return 'Field Department is required'
+    }
+
+    if(fieldDepartmentId?.hasError('min') && fieldDepartmentId?.touched) {
+      return 'You must select a Department'
+    }
+
+    return ''
+  }
+
+  getCategoryErrorMessage(){
+    var fieldCategoryId = this.form.get('categoryId')
+    if(fieldCategoryId?.hasError('required') && fieldCategoryId?.touched) {
+      return 'Field Category is required'
+    }
+
+    if(fieldCategoryId?.hasError('min') && fieldCategoryId?.touched) {
+      return 'You must select a Category'
+    }
+
+    return ''
   }
 }
