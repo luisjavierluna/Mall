@@ -4,7 +4,7 @@
         <ul class="navbar-links-ul"  [class.show-navbar-links-ul]="navbarLinksVariable">
             
             <li *ngFor="let department of headerMenuDepartments" class="navbar-links-ul-li">
-                <a href="#">
+                <a routerLink="/department/page/{{department.name}}">
                     {{department.name}}
                     <i class="fa-solid fa-caret-down"></i>
                 </a>
@@ -16,7 +16,7 @@
             <li *ngFor="let department of headerMenuDepartments" class="accordion accordion-flush">
                 <div class="accordion-item">
                     <div class="accordion-header" id="{{department.id}}">
-                        <a href="#" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#' + department.name" aria-expanded="true" [attr.aria-controls]="department.name">
+                        <a routerLink="/department/page/{{department.name}}" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#' + department.name" aria-expanded="true" [attr.aria-controls]="department.name">
                             {{department.name}}
                         </a>
                     </div>

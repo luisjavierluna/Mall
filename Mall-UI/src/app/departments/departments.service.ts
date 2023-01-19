@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Department, MenuDepartment } from '../models/department';
+import { Department, MenuDepartment, PageDepartment } from '../models/department';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,10 @@ export class DepartmentsService {
 
   public getById(id: number):Observable<Department>{
     return this.http.get<Department>(`${this.apiURL}/${id}`)
+  }
+
+  public getByPageName(name: string):Observable<PageDepartment>{
+    return this.http.get<PageDepartment>(`${this.apiURL}/departmentPage/${name}`)
   }
 
   public edit(id: number, department: Department):Observable<Department>{

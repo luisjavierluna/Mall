@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { first } from 'rxjs';
 import { CategoriesComponent } from './categories/categories/categories.component';
 import { CreateCategoryComponent } from './categories/create-category/create-category.component';
 import { EditCategoryComponent } from './categories/edit-category/edit-category.component';
 import { CreateDepartmentComponent } from './departments/create-department/create-department.component';
 import { DepartmentsComponent } from './departments/departments/departments.component';
 import { EditDepartmentComponent } from './departments/edit-department/edit-department.component';
+import { DepartmentPageComponent } from './header/departments/computers-department/department-page.component';
 import { IsAdminGuard } from './is-admin.guard';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ManagementDashboardComponent } from './management-dashboard/management-dashboard.component';
@@ -33,6 +35,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'search', component: SearchComponent},
   {path: 'unauthorized', component: UnauthorizedComponent},
+  {path: 'department/page/:name', component: DepartmentPageComponent},
   {path: '**', redirectTo: ''},
 ]
 

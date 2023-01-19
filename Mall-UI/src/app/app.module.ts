@@ -32,6 +32,7 @@ import { SecurityInterceptorService } from './security/security-interceptor.serv
 import { UnauthorizedComponent } from './security/unauthorized/unauthorized.component';
 import { ManagementDashboardComponent } from './management-dashboard/management-dashboard.component';
 import { ShowErrorsComponent } from './utilities/show-errors/show-errors.component';
+import { DepartmentPageComponent } from './header/departments/computers-department/department-page.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ShowErrorsComponent } from './utilities/show-errors/show-errors.compone
     SigninComponent,
     UnauthorizedComponent,
     ManagementDashboardComponent,
-    ShowErrorsComponent
+    ShowErrorsComponent,
+    DepartmentPageComponent,
   ],
   imports: [
     BrowserModule,

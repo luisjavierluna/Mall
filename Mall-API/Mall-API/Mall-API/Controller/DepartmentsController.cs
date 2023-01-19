@@ -81,6 +81,37 @@ namespace Mall_API.Controller
             return Ok(existingDepartment);
         }
 
+        [HttpGet("departmentPage/{Name}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetDepartmentPage(string Name)
+        {
+            var department = await _context.Departments
+                .Include(x => x.Categories)
+                .FirstOrDefaultAsync(x => x.Name == Name);
+
+            if (department == null)
+            {
+                return NotFound("Page not found");
+            }
+
+            var pageDepartment = new
+            {
+                Id = department.Id,
+                Name = department.Name,
+                Categories = department.Categories.Select(x =>
+                new
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Image = x.Image
+                })
+            };
+
+            return Ok(pageDepartment);
+        }
+
+
+
         [HttpPut("{Id:int}")]
         public async Task<IActionResult> PutDepartment([FromBody] Department newDepartment, int Id)
         {

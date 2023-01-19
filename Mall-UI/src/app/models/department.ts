@@ -1,4 +1,4 @@
-import { Category, MenuCategory } from "./category"
+import { Category, MenuCategory, PageCategory } from "./category"
 
 export interface Department {
     id: number
@@ -7,6 +7,12 @@ export interface Department {
 
 export interface MenuDepartment {
     id: number
-    name: string
+    name: string,
     categories: MenuCategory[]
+}
+
+export interface PageDepartment {
+    id: number
+    name: string
+    categories: PageCategory[]
 }

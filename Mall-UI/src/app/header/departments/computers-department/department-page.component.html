@@ -1,0 +1,35 @@
+
+<div class="department-block">
+    
+    <app-show-errors [errors]="errors"></app-show-errors>
+
+    <div class="department-block__headers">
+        <h3>{{department.name}}</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis iure reprehenderit sequi dolor sunt hic doloremque 
+            natus magni adipisci, architecto ea </p>
+    </div>
+
+    <div class="department-block__buttons">
+        <a class="btn btn-outline-dark" *ngFor="let category of department.categories">{{category.name}}</a>
+    </div>
+
+    <div class="department-block__images" *ngIf="department.id > 0">
+        <div class="image" *ngFor="let category of department.categories">
+            <img [src]="category.image" alt="There is no image to display">
+            <a class="btn btn-white department-button">{{category.name}}</a>
+        </div>
+    </div>
+
+    
+    <div class="department-banner">
+        <div class="department-banner__overlay">
+            <h1>
+                What's New at Infinite
+            </h1>
+
+            <a class="department-banner__button">
+                Discover More
+            </a>
+        </div>
+    </div>
+</div>

@@ -14,6 +14,12 @@ export interface MenuCategory {
     products: MenuProduct[]
 }
 
+export interface PageCategory {
+    id: number
+    name: string
+    image: string
+}
+
 export interface CategoryCreationDTO {
     name: string
     image: File
