@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DepartmentsService } from 'src/app/departments/departments.service';
 import { PageDepartment } from 'src/app/models/department';
 import { parseAPIErrors } from 'src/app/utilities/utilities';
@@ -13,9 +13,10 @@ export class DepartmentPageComponent implements OnInit {
 
   constructor(
     private departmentService: DepartmentsService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private router: Router) { }
 
-  department: PageDepartment = {
+  departmentPage: PageDepartment = {
     id: 0,
     name: '',
     categories: []
@@ -28,11 +29,22 @@ export class DepartmentPageComponent implements OnInit {
       this.departmentService.getByPageName(params['name'])
       .subscribe({
         next: departmentResponse => {
-          this.department = departmentResponse
+          this.departmentPage = departmentResponse
         },
         error: errors => {this.errors = parseAPIErrors(errors)}
       })
     })
+  }
+
+
+  goToSearch(id: number) {
+    let searchString = ''
+
+
+    this.router.navigate(['/search'], {queryParams:{
+      departmentId:this.departmentPage.id,
+      categoryId:id}})
+
   }
 
 }

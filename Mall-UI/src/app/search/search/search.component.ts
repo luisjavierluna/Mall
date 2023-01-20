@@ -34,6 +34,8 @@ export class SearchComponent implements OnInit {
   searchLength: string = ''
   
   nameInputParam: string = ''
+  categoryInputParam: string = ''
+  departmentInputParam: string = ''
   departmentIdInputParam: string = ''
   categoryIdInputParam: string = ''
 
@@ -49,7 +51,9 @@ export class SearchComponent implements OnInit {
     })
 
     this.route.queryParams.subscribe((params: any) => {
-      this.nameInputParam = params.name
+      this.form.get('name')?.setValue(params.name)
+      this.form.get('departmentId')?.setValue(params.departmentId)
+      this.form.get('categoryId')?.setValue(params.categoryId)
 
       if(params.departmentId !== undefined) {
         this.departmentIdInputParam = params.departmentId
