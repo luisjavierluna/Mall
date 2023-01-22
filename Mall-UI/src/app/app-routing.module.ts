@@ -7,7 +7,8 @@ import { EditCategoryComponent } from './categories/edit-category/edit-category.
 import { CreateDepartmentComponent } from './departments/create-department/create-department.component';
 import { DepartmentsComponent } from './departments/departments/departments.component';
 import { EditDepartmentComponent } from './departments/edit-department/edit-department.component';
-import { DepartmentPageComponent } from './header/departments/computers-department/department-page.component';
+import { DepartmentPageComponent } from './header/departments/department-page/department-page.component';
+import { ProductPageComponent } from './header/departments/product-page/product-page.component';
 import { IsAdminGuard } from './is-admin.guard';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ManagementDashboardComponent } from './management-dashboard/management-dashboard.component';
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path: 'search', component: SearchComponent},
   {path: 'unauthorized', component: UnauthorizedComponent},
   {path: 'department/page/:name', component: DepartmentPageComponent},
+  {path: 'product/page/:name', component: ProductPageComponent},
   {path: '**', redirectTo: ''},
 ]
 

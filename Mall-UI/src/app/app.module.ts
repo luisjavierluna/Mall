@@ -32,7 +32,8 @@ import { SecurityInterceptorService } from './security/security-interceptor.serv
 import { UnauthorizedComponent } from './security/unauthorized/unauthorized.component';
 import { ManagementDashboardComponent } from './management-dashboard/management-dashboard.component';
 import { ShowErrorsComponent } from './utilities/show-errors/show-errors.component';
-import { DepartmentPageComponent } from './header/departments/computers-department/department-page.component';
+import { DepartmentPageComponent } from './header/departments/department-page/department-page.component';
+import { ProductPageComponent } from './header/departments/product-page/product-page.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { DepartmentPageComponent } from './header/departments/computers-departme
     ManagementDashboardComponent,
     ShowErrorsComponent,
     DepartmentPageComponent,
+    ProductPageComponent,
   ],
   imports: [
     BrowserModule,
