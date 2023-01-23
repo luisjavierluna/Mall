@@ -83,7 +83,6 @@ export class SearchBoxComponent implements OnInit {
   }
 
   searchSuggestion(productName: string) {
-    console.log(productName)
     this.searchInput = productName
 
     setTimeout(() => {

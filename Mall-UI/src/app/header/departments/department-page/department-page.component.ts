@@ -30,7 +30,6 @@ export class DepartmentPageComponent implements OnInit {
       this.departmentService.getByPageName(params['name'])
       .subscribe({
         next: departmentResponse => {
-          console.log(departmentResponse)
           this.departmentPage = departmentResponse
         },
         error: errors => {this.errors = parseAPIErrors(errors)}
