@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Product, ProductCreationDTO } from '../models/product';
+import { PageProduct, Product, ProductCreationDTO } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +26,10 @@ export class ProductsService {
     return this.http.get<Product>(`${this.apiURL}/${id}`)
   }
 
+  public getByPageName(name: string):Observable<PageProduct>{
+    return this.http.get<PageProduct>(`${this.apiURL}/productPage/${name}`)
+  }
+
   public edit(id: number, product: ProductCreationDTO):Observable<ProductCreationDTO>{
     const formData = this.buildFormData(product)
     return this.http.put<ProductCreationDTO>(`${this.apiURL}/${id}`, formData)
@@ -45,6 +49,10 @@ export class ProductsService {
 
     formData.append('categoryId', product.categoryId.toString())
     formData.append('departmentId', product.departmentId.toString())
+
+    formData.append('price', product.price.toString())
+    formData.append('discount', product.discount.toString())
+    formData.append('description', product.description)
 
     return formData
   }

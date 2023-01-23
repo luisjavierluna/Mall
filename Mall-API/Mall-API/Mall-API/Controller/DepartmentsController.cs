@@ -91,13 +91,14 @@ namespace Mall_API.Controller
 
             if (department == null)
             {
-                return NotFound("Page not found");
+                return NotFound("Department not found");
             }
 
             var pageDepartment = new
             {
                 Id = department.Id,
                 Name = department.Name,
+                Description = department.Description,
                 Categories = department.Categories.Select(x =>
                 new
                 {
@@ -110,8 +111,6 @@ namespace Mall_API.Controller
             return Ok(pageDepartment);
         }
 
-
-
         [HttpPut("{Id:int}")]
         public async Task<IActionResult> PutDepartment([FromBody] Department newDepartment, int Id)
         {
@@ -123,6 +122,7 @@ namespace Mall_API.Controller
             }
 
             departmentToUpdate.Name = newDepartment.Name;
+            departmentToUpdate.Description = newDepartment.Description;
 
             await _context.SaveChangesAsync();
 

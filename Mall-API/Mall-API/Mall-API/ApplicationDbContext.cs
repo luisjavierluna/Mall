@@ -21,6 +21,8 @@ namespace Mall_API
                 department.HasKey(d => d.Id);
 
                 department.Property(d => d.Name).IsRequired();
+
+                department.Property(d => d.Description).IsRequired();
             });
 
             modelBuilder.Entity<Category>(category =>
@@ -49,6 +51,19 @@ namespace Mall_API
                 product.Property(p => p.Name).IsRequired();
 
                 product.Property(p => p.Image);
+
+                product.Property(p => p.Price)
+                .HasPrecision(10, 2)
+                .IsRequired();
+
+                product.Property(p => p.Discount)
+                .HasPrecision(2, 1)
+                .IsRequired();
+
+                product.Ignore(p => p.PriceWithDiscount);
+
+                product.Property(p => p.Description)
+                .IsRequired();
 
                 product.HasOne(p => p.Category)
                 .WithMany(c => c.Products)

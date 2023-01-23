@@ -59,6 +59,11 @@
     height: fit-content;
 }
 
+.card a {
+    text-decoration: none;
+    color: black;
+}
+
 .card__image {
     width: 215px;
     height: 222px;

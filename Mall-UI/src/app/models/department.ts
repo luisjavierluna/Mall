@@ -3,6 +3,7 @@ import { Category, MenuCategory, PageCategory } from "./category"
 export interface Department {
     id: number
     name: string
+    description: string
 }
 
 export interface MenuDepartment {
@@ -14,5 +15,6 @@ export interface MenuDepartment {
 export interface PageDepartment {
     id: number
     name: string
+    description: string
     categories: PageCategory[]
 }

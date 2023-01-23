@@ -3,7 +3,7 @@
         <div class="row">
             <header>{{category.name}}</header>
             <ul class="mega-links" *ngFor="let product of category.products">
-                <li><a href="#">{{product.name}}</a></li>
+                <li><a routerLink="/product/page/{{product.name}}">{{product.name}}</a></li>
             </ul>
         </div>
     </div>

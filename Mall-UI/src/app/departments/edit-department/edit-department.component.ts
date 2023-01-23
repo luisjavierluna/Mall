@@ -19,7 +19,7 @@ export class EditDepartmentComponent implements OnInit {
     private router: Router,
     private securityService: SecurityService) { }
 
-  departmentToEdit: Department = {id: 0, name: ''}
+  departmentToEdit: Department = {id: 0, name: '', description: ''}
 
   errors: string[] = []
 

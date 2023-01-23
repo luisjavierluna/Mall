@@ -20,25 +20,25 @@
                     </div>
 
                     <div class="images__main--image">
-                        <img src="https://ss628.liverpool.com.mx/xl/1116069896.jpg" alt="">
+                        <img [src]="productPage.image" alt="">
                     </div>
                 </div>
 
                 <div class="description">
 
                     <div class="product-description">
-                        <h3>Laptop Gamer Lenovo Gaming 3 Ci5 15.6 pulgadas Full HD Nvidia GeForce GTX 1650 Ti Intel Core i5 8 GB RAM 1 TB HDD 256 GB SSD</h3>
-                        <p>Código de Producto</p>
+                        <h3>{{productPage.name}} 15.6 pulgadas Full HD Nvidia GeForce GTX 1650 Ti Intel Core i5 8 GB RAM 1 TB HDD 256 GB SSD</h3>
+                        <p>Código de Producto: {{productPage.id}}</p>
                         <div>
-                            <img src="" alt="">
+                            <!-- <img src="" alt=""> -->
                             <div><a href="">Ver disponibilidad en tienda</a> </div>
                         </div>
     
                         <hr>
     
                         <div class="product-description__price">
-                            <p class="price__original">$28,999.00</p>
-                            <p class="price__discount">$26,099.00</p>
+                            <p class="price__original" *ngIf="productPage.price > productPage.priceWithDiscount">{{productPage.price | currency}}</p>
+                            <p class="price__discount">{{productPage.priceWithDiscount | currency}}</p>
                         </div>
     
                         <div><a href="">Ver más promociones</a></div>
@@ -68,8 +68,7 @@
                         <div>
                             <p>Descripción:</p>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias porro natus saepe fugiat nihil perferendis harum odio optio soluta aspernatur quia temporibus, facere ipsam illo quibusdam magnam fuga laborum quos!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias porro natus saepe fugiat nihil perferendis harum odio optio soluta aspernatur quia temporibus, facere ipsam illo quibusdam magnam fuga laborum quos!
+                                {{productPage.description}}
                             </p>
                         </div>
                     </div>

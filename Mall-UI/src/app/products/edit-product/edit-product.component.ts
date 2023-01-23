@@ -18,7 +18,19 @@ export class EditProductComponent implements OnInit {
     private router: Router, 
     private securityService: SecurityService) { }
 
-  productToEdit: Product = {id: 0, name: '', image: '', categoryId: 0, categoryName: '', departmentId: 0, departmentName: ''}
+  productToEdit: Product = {
+    id: 0,
+    name: '',
+    image: '',
+    price: 0,
+    discount: 0,
+    priceWithDiscount: 0,
+    description: '',
+    categoryId: 0,
+    categoryName: '',
+    departmentId: 0,
+    departmentName: ''
+  }
 
   errors: string[] = []
 

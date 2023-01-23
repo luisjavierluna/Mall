@@ -13,19 +13,20 @@ export class FormDepartmentsComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   @Input()
-  departmentToEditParam: Department = {id: 0, name: ''}
+  departmentToEditParam: Department = {id: 0, name: '', description: ''}
 
   @Input()
   errors: string[] = []
 
   @Output()
-  onSubmit: EventEmitter<Category> = new EventEmitter<Category>()
+  onSubmit: EventEmitter<Department> = new EventEmitter<Department>()
 
   form: FormGroup = this.formBuilder.group({})
   
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       name: ['', {validators: [Validators.required]}],
+      description: ''
     })
   }
 

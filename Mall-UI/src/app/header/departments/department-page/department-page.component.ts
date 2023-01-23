@@ -19,6 +19,7 @@ export class DepartmentPageComponent implements OnInit {
   departmentPage: PageDepartment = {
     id: 0,
     name: '',
+    description: '',
     categories: []
   }
 
@@ -29,6 +30,7 @@ export class DepartmentPageComponent implements OnInit {
       this.departmentService.getByPageName(params['name'])
       .subscribe({
         next: departmentResponse => {
+          console.log(departmentResponse)
           this.departmentPage = departmentResponse
         },
         error: errors => {this.errors = parseAPIErrors(errors)}
@@ -38,13 +40,9 @@ export class DepartmentPageComponent implements OnInit {
 
 
   goToSearch(id: number) {
-    let searchString = ''
-
-
     this.router.navigate(['/search'], {queryParams:{
       departmentId:this.departmentPage.id,
       categoryId:id}})
-
   }
 
 }

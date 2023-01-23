@@ -72,6 +72,21 @@ namespace Mall_API.Controller
             return Ok(existingProduct);
         }
 
+        [HttpGet("productPage/{Name}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetDepartmentPage(string Name)
+        {
+            var product = await _context.Products
+                .FirstOrDefaultAsync(x => x.Name == Name);
+
+            if (product == null)
+            {
+                return NotFound("Product not found");
+            }
+
+            return Ok(product);
+        }
+
         [HttpPut("{Id:int}")]
         public async Task<IActionResult> PutProduct([FromForm] ProductCreationDTO newProduct, int Id)
         {

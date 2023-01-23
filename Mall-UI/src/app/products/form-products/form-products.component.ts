@@ -19,7 +19,19 @@ export class FormProductsComponent implements OnInit {
     private categoriesService: CategoriesService) { }
 
   @Input()
-  productToEditParam: Product = {id: 0, name: '', image: '', categoryId: 0, categoryName: '', departmentId: 0, departmentName: ''}
+  productToEditParam: Product = {
+    id: 0,
+    name: '',
+    image: '',
+    price: 0,
+    discount: 0,
+    priceWithDiscount: 0,
+    description: '',
+    categoryId: 0,
+    categoryName: '',
+    departmentId: 0,
+    departmentName: ''
+  }
 
   @Input()
   errors: string[] = []
@@ -42,7 +54,10 @@ export class FormProductsComponent implements OnInit {
       name: ['', {validators: [Validators.required]}],
       categoryId: ['', {validators: [Validators.required, Validators.min(1)]}],
       departmentId: ['', {validators: [Validators.required, Validators.min(1)]}],
-      image: ''
+      image: '',
+      price: '',
+      discount: '',
+      description: ''
     })
   }
 
